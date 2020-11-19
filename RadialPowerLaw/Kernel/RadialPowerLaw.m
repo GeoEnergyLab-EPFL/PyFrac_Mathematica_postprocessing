@@ -2,9 +2,10 @@
 
 BeginPackage["RadialPowerLaw`"]
 
-Get[FileNameJoin[{"RadialPowerLaw","VertexSolutions.m"}]];
-Get[FileNameJoin[{"RadialPowerLaw","NearVertexSolutions.m"}]];
-Get[FileNameJoin[{"RadialPowerLaw","RadialScaling.m"}]];
+(*Get[NotebookDirectory[]<>"RadialPowerLaw/Kernel/VertexSolutions.m"];*)
+Needs["RadialScaling`"]
+Needs["VertexSolutions`"]
+Needs["NearVertexSolutions`"]
 
 Needs["DescriptionUtilities`"];
 
@@ -15,8 +16,8 @@ CriticalOpening::usage = "Gives the Adimensionl critical opening"
 
 Begin["`Private`"]
  
-Get[FileNameJoin[{"RadialPowerLaw","InsidePowerLaw.txt"}]];
-Get[FileNameJoin[{"RadialPowerLaw","MKEdgePowerLaw.txt"}]];
+Get[Directory[]<>"/Documents/Wolfram Mathematica/PyFrac_Mathematica_postprocessing/RadialPowerLaw/Kernel/InsidePowerLaw.txt"];
+Get[Directory[]<>"/Documents/Wolfram Mathematica/PyFrac_Mathematica_postprocessing/RadialPowerLaw/Kernel/MKEdgePowerLaw.txt"];
 
 
 (* Early time MK EDGE *)

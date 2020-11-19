@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (* Mathematica Package *)
 
 BeginPackage["DescriptionUtilities`"]
@@ -63,15 +65,29 @@ FluidProperties::usage = "Symbol reserved for fluid properties "
 SigmaO::usage = " Symbol reserved for initial constant clamping stress normal to the fracture"
 
 
+(* Dimensionless coefficients *)
+\[ScriptCapitalK]::usage = "Dimensionless toughness coefficient."
+\[ScriptCapitalM]::usage = "Dimensionless viscosity coefficient."
+\[ScriptCapitalC]::usage = "Dimensionless leak-off coefficient."
+\[ScriptCapitalV]::usage = "Dimensionless storage coefficient."
+
+
 WellboreRadius::usage = " Symbol reserved for wellbore radis "
 
 Ep::usage = " Symbole reserved for the plane strain Young's modulus Ep=E/(1-nu^2) "
+Emod::usage = " Symbole reserved for the Young's modulus"
+\[Nu]::usage = "Symbol reserved for the Poisson's ratio"
 Kp::usage = "Symbol reserved for the equivalent toughness Kp = Sqrt[32/Pi] Kic "
 KIc::usage = "Symbol reserved for the fracture toughness "
+Mp::usage = "Symbol reserved for the fluid dimensionless viscosity"
+\[Mu]p::usage = "Symbol reserved for the fluid dimensionless viscosity"
+\[Mu]::usage = "Symbol reserved for the fluid viscosity"
 Vstar::usage = "Symbol reserved for the critical crack velocity in sub-critical crack growth"
 Nsubcritical::usage = " Symbol reserved for the sub-critical growth power law index"
 
 Qo::usage =" Symbol reserved for the (total) injected flux "
+Vo::usage =" Symbol reserved for the (total) injected fluid"
+ts::usage =" Time of the shut-in of the pump."
 InjectionRate::usage =" Symbol reserved for the (total) injected flux "
 Qin::usage = "Symbol reserved for the flux entereing the fracture"
 Cp::usage = "Symbol reserved for Total Perf Friction factor  Pa / (m^(2+d)/s)"

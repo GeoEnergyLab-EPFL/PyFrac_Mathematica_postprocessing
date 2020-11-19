@@ -1,21 +1,23 @@
 (* ::Package:: *)
 
-BeginPackage["RadialPowerLaw`RadialScaling`"]
+BeginPackage["RadialScaling`"]
 
 Needs["DescriptionUtilities`"];
 
+
 DimensionalScales::usage =	"Gives the time-independent characteristic scales - call sequence is DimensionalScales[Eprime,KIc,CL,M,Q,n]"
 
-TimeParameters::usage =	"Gives phi and the dimensionless time along the edges - call sequence is TimeParameters[Eprime,KIc,CL,M,Q,n] "
+TimeParameters::usage =	"Gives phi and the dimensionless time along the edges - call sequence is TimeParameters[Eprime,KIc,CL,M,Q,n]"
 
-ToNumericalScaling::usage = "Scales transition to numerical scaling from vertex scaling ToNumericalScaling[V_?StringQ,n_,tau_,phi_:1]"
+ToNumericalScaling::usage = "Scales transition to numerical scaling from vertex scaling ToNumericalScaling[V_?StringQ,n_,tau_,phi_1]"
 
 VertexScaling::usage = "Vertex scalings Power-law (self-similar scaling) - call sequence is VertexScaling[V_?StringQ,Ep_,Kp_,Mp_,Qo_,n_,t_] 
-with Kp=(32/pi)^0.5 , Mp= alpha M with alpha=2^(1 + n) n^-n (1 + 2 n)^n" 
+with Kp=(32/pi)^0.5 , Mp= alpha M with alpha=2^(1 + n) n^-n (1 + 2 n)^n"
+
 
 Begin["`Private`"]
 
-VertexScaling[V_?StringQ,Ep_,Kp_,Mp_,Qo_,n_,t_] =
+VertexScaling[V_?StringQ,Ep_,Kp_,Mp_,Qo_,n_,t_] :=
 Switch[V,
 	"M",
 			{Lstar->Ep^(1/(6 + 3 n)) Mp^(-(1/(6 + 3 n))) Qo^(1/3) t^((2 (1 + n))/( 3 (2 + n))),

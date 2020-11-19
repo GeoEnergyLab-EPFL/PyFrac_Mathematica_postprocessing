@@ -1,4 +1,6 @@
-BeginPackage["RadialPowerLaw`NearVertexSolutions`"]
+(* ::Package:: *)
+
+BeginPackage["NearVertexSolutions`"]
 
 Needs["DescriptionUtilities`"];
 

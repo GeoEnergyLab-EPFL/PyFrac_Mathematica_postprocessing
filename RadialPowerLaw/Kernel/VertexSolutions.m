@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["RadialPowerLaw`VertexSolutions`"]
+BeginPackage["VertexSolutions`"]
 
 Needs["DescriptionUtilities`"];
 

@@ -10,9 +10,12 @@ SolutionTime::usage = "Gives the interval of time where each solution is valid";
 
 Begin["`Private`"]
 
-Get[FileNameJoin[{"RadialPowerLaw","InsidePowerLaw.txt"}]];
+Get[Directory[]<>"/Documents/Wolfram Mathematica/PyFrac_Mathematica_postprocessing/RadialPowerLaw/Kernel/MKEdgePowerLaw.txt"];
+Get[Directory[]<>"/Documents/Wolfram Mathematica/PyFrac_Mathematica_postprocessing/RadialPowerLaw/Kernel/InsidePowerLaw.txt"];
+Get[Directory[]<>"/Documents/Wolfram Mathematica/PyFrac_Mathematica_postprocessing/RadialPowerLaw/Kernel/MMtEdgePowerLaw.txt"];
+(*Get[FileNameJoin[{"RadialPowerLaw","InsidePowerLaw.txt"}]];
 Get[FileNameJoin[{"RadialPowerLaw","MKEdgePowerLaw.txt"}]];
-Get[FileNameJoin[{"RadialPowerLaw","MMtEdgePowerLaw.txt"}]];
+Get[FileNameJoin[{"RadialPowerLaw","MMtEdgePowerLaw.txt"}]];*)
 
 EdgeSolution[V_?StringQ,n_,t_,rho_]:=
 	Module[
