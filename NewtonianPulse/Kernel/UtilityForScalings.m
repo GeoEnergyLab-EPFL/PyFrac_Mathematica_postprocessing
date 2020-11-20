@@ -22,7 +22,7 @@ Begin["`Private`"];
 
 
 inputDataTransformation[inpData_,prime_:True] := Module[{Kprime,Mprime,Eprime,Cprime,
-Voint,tsint,Qoint},
+Voint,tsint,Qoint,alpha,intn},
 
 (* Decide on Kprime *)
 If[KeyExistsQ[inpData,KIc]&&prime,
@@ -32,9 +32,16 @@ Kprime = KIc/.inpData,
 Kprime = Kp/.inpData]
 ];
 
+(* Decide on n *)
+If[KeyExistsQ[inpData,n],
+alpha = (2^(n + 1) (2 n + 1)^n)/n^n;
+intn = n/.inpData;,
+alpha = 12;
+intn = 1.];
+
 (* Decide on \[Mu]' *)
 If[KeyExistsQ[inpData,\[Mu]],
-Mprime = 12 \[Mu]/.inpData,
+Mprime = alpha \[Mu]/.inpData,
 Mprime = \[Mu]p/.inpData];
 
 (* Decide on E' *)
@@ -48,9 +55,9 @@ Cprime = 2 Cl/.inpData,
 Cprime = Cp/.inpData];
 
 (* Decide on Vo *)
-If[KeyExistsQ[inpData,Qo],
-Voint = Qo ts/.inpData,
-Voint = Vo/.inpData];
+If[KeyExistsQ[inpData,Vo],
+Voint = Vo/.inpData,
+Voint = Qo ts/.inpData];
 
 (* Decide on Qo *)
 Qoint = Qo/.inpData;
@@ -59,7 +66,7 @@ Qoint = Qo/.inpData;
 tsint = ts/.inpData;
 
 {Ep-> Eprime, Vo -> Voint, Qo -> Qoint, ts -> tsint, Mp -> Mprime, Kp -> Kprime,
-Cp-> Cprime}
+Cp-> Cprime,n -> intn}
 
 ];
 

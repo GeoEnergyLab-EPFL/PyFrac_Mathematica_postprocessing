@@ -3,112 +3,111 @@
 BeginPackage["RadialScaling`"]
 
 Needs["DescriptionUtilities`"];
+Needs["UtilityForScalings`"];
 
 
-DimensionalScales::usage =	"Gives the time-independent characteristic scales - call sequence is DimensionalScales[Eprime,KIc,CL,M,Q,n]"
+transitionMKScales::usage =	"Gives the time-independent characteristic scales - call sequence is DimensionalScales[Eprime,KIc,CL,M,Q,n]"
 
-TimeParameters::usage =	"Gives phi and the dimensionless time along the edges - call sequence is TimeParameters[Eprime,KIc,CL,M,Q,n]"
+timeParameters::usage =	"Gives phi and the dimensionless time along the edges - call sequence is TimeParameters[Eprime,KIc,CL,M,Q,n]"
 
-ToNumericalScaling::usage = "Scales transition to numerical scaling from vertex scaling ToNumericalScaling[V_?StringQ,n_,tau_,phi_1]"
+toNumericalScaling::usage = "Scales transition to numerical scaling from vertex scaling ToNumericalScaling[V_?StringQ,n_,tau_,phi_1]"
 
-VertexScaling::usage = "Vertex scalings Power-law (self-similar scaling) - call sequence is VertexScaling[V_?StringQ,Ep_,Kp_,Mp_,Qo_,n_,t_] 
+vertexScaling::usage = "Vertex scalings Power-law (self-similar scaling) - call sequence is VertexScaling[V_?StringQ,Ep_,Kp_,Mp_,Qo_,n_,t_] 
 with Kp=(32/pi)^0.5 , Mp= alpha M with alpha=2^(1 + n) n^-n (1 + 2 n)^n"
 
 
 Begin["`Private`"]
 
-VertexScaling[V_?StringQ,Ep_,Kp_,Mp_,Qo_,n_,t_] :=
+vertexScaling[V_?StringQ,inpData_,t_,prime_:True] := Module[{data},
+
+data = inputDataTransformation[inpData,prime];
+
 Switch[V,
 	"M",
 			{Lstar->Ep^(1/(6 + 3 n)) Mp^(-(1/(6 + 3 n))) Qo^(1/3) t^((2 (1 + n))/( 3 (2 + n))),
 			wstar->Ep^(-(2/(6 + 3 n))) Mp^(2/(6 + 3 n)) Qo^(1/3) t^((2 - n)/(6 + 3 n)),
 			pstar->Ep^((1 + n)/(2 + n)) Mp^(1/(2 + n)) t^(-(n/(2 + n))),
-			qstar->Ep^(-(1/(6 + 3 n))) Mp^(1/(6 + 3 n)) Qo^( 2/3) t^(-((2 (1 + n))/(3 (2 + n))))
-			},
+			qstar->Ep^(-(1/(6 + 3 n))) Mp^(1/(6 + 3 n)) Qo^( 2/3) t^(-((2 (1 + n))/(3 (2 + n)))),
+			\[ScriptCapitalK] -> (Kp t^(1/9))/(Ep^(13/18) Mp^(5/18) Qo^(1/6)),
+			\[ScriptCapitalC] -> (Cp Ep^(2/9) t^(7/18))/(Mp^(2/9) Qo^(1/3))
+			} /.data//N,
 			"K",
 		{Lstar->(Ep^(2/5) Qo^(2/5) t^(2/5))/Kp^(2/5),
 		wstar->(Kp^(4/5) Qo^(1/5) t^(1/5))/Ep^(4/5),
 		pstar->Kp^(6/5)/(Ep^(1/5) Qo^(1/5) t^(1/5)),
-		qstar->(Kp^(2/5) Qo^(3/5))/(Ep^(2/5) t^(2/5))
-		},
+		qstar->(Kp^(2/5) Qo^(3/5))/(Ep^(2/5) t^(2/5)),
+			\[ScriptCapitalM] -> (Ep^(13/5) Mp Qo^(3/5))/(Kp^(18/5) t^(2/5)),
+			\[ScriptCapitalC] -> (Cp Ep^(4/5) t^(3/10))/(Kp^(4/5) Qo^(1/5))
+			} /.data//N,
 		"Mt",{Lstar->(Sqrt[Qo] t^(1/4))/Sqrt[Cp],
 		wstar->Cp^((-2 + n)/(4 (1 + n))) Ep^(-(1/(2 + 2 n))) Mp^(1/(2 + 2 n)) Qo^(( 2 + n)/(4 + 4 n)) t^((2 - n)/(8 + 8 n)),
  		pstar->Cp^((3 n)/(4 + 4 n)) Ep^(1 - 1/(2 + 2 n)) Mp^(1/( 2 + 2 n)) Qo^(-(n/(4 + 4 n))) t^(-((3 n)/(8 + 8 n))),
- 		qstar->(Sqrt[Cp] Sqrt[Qo])/t^(1/4)
-		},
+ 		qstar->(Sqrt[Cp] Sqrt[Qo])/t^(1/4),
+			\[ScriptCapitalK] -> (Kp t^(1/16))/(Cp^(1/8) Ep^(3/4) Mp^(1/4) Qo^(1/8)),
+			\[ScriptCapitalV] -> (Cp^(9/8) Ep^(1/4) t^(7/16))/(Mp^(1/4) Qo^(3/8))
+			} /.data//N,
 		"Kt",{Lstar->(Sqrt[Qo] t^(1/4))/Sqrt[Cp],
 		wstar->(Kp Qo^(1/4) t^(1/8))/(Cp^(1/4) Ep),
 		pstar->(Cp^(1/4) Kp)/(Qo^(1/4) t^(1/8)),
-		qstar->(Sqrt[Cp] Sqrt[Qo])/t^(1/4)
-		}
+		qstar->(Sqrt[Cp] Sqrt[Qo])/t^(1/4),
+			\[ScriptCapitalM] -> (Sqrt[Cp] Ep^3 Mp Sqrt[Qo])/(Kp^4 t^(1/4)),
+			\[ScriptCapitalV] -> (Cp^(5/4) Ep t^(3/8))/(Kp Qo^(1/4))
+			} /.data//N
+]
 ];
 
 
-
-DimensionalScales[Eprime_, KIc_, CL_, M_, Q_, n_] = 
-Module[
-   		{
-   			Kprime, Cprime, Mprime, alpha    		
-    	},
+transitionMKScales[inpData_,prime_:True] := 
+Module[{data},
    
-   		alpha = (2^(n + 1) (2 n + 1)^n)/n^n;
-   		Kprime = 4 (2/\[Pi])^(1/2) KIc;
-   		Cprime = 2 CL;
-   		Mprime = alpha M;
+	data = inputDataTransformation[inpData,prime];
          
    		{
-	   		Lstar-> Q^(2/5 + (2 (2 + n))/(5 (-2 + 4 n)))* 
-	    			Eprime^(2/5 + (2 (7 + 6 n))/(5 (-2 + 4 n)))*
-	      			Kprime^(-(2/5) - (12 (2 + n))/(5 (-2 + 4 n))) Mprime^(2/(-2 + 4 n)),
-	      	wstar-> Q^(1/5 + (2 + n)/(5 (-2 + 4 n)))*
-	    			Eprime^(-(4/5) + (7 + 6 n)/(5 (-2 + 4 n)))*
-	    			Kprime^(4/5 - (6 (2 + n))/(5 (-2 + 4 n)))*
-	      			Mprime^(1/(-2 + 4 n)),
-	      	pstar-> Q^(-(1/5) - (2 + n)/(5 (-2 + 4 n)))* 
-	    			Eprime^(-(1/5) - (7 + 6 n)/(5 (-2 + 4 n)))*
-	    			Kprime^(6/5 + (6 (2 + n))/(5 (-2 + 4 n)))*
-	      			Mprime^(-(1/(-2 + 4 n))),
-	      	qstar -> Q^(3/5 - (2 (2 + n))/(5 (-2 + 4 n)))*
-	      			 Eprime^(-(2/5) - (2 (7 + 6 n))/(5 (-2 + 4 n)))*
-	      			 Kprime^(2/5 + (12 (2 + n))/(5 (-2 + 4 n)))*
-	      			 Mprime^(-(2/(-2 + 4 n))),
-	      	tstar -> ((Mprime^5 Eprime^(6 n + 7) Q^(n + 2))/Kprime^(6 (n + 2)))^(1/(4 n - 2))
-      	}
+	   		Lstar-> Qo^(2/5 + (2 (2 + n))/(5 (-2 + 4 n)))* 
+	    			Ep^(2/5 + (2 (7 + 6 n))/(5 (-2 + 4 n)))*
+	      			Kp^(-(2/5) - (12 (2 + n))/(5 (-2 + 4 n))) Mp^(2/(-2 + 4 n)),
+	      	wstar-> Qo^(1/5 + (2 + n)/(5 (-2 + 4 n)))*
+	    			Ep^(-(4/5) + (7 + 6 n)/(5 (-2 + 4 n)))*
+	    			Kp^(4/5 - (6 (2 + n))/(5 (-2 + 4 n)))*
+	      			Mp^(1/(-2 + 4 n)),
+	      	pstar-> Qo^(-(1/5) - (2 + n)/(5 (-2 + 4 n)))* 
+	    			Ep^(-(1/5) - (7 + 6 n)/(5 (-2 + 4 n)))*
+	    			Kp^(6/5 + (6 (2 + n))/(5 (-2 + 4 n)))*
+	      			Mp^(-(1/(-2 + 4 n))),
+	      	qstar -> Qo^(3/5 - (2 (2 + n))/(5 (-2 + 4 n)))*
+	      			 Ep^(-(2/5) - (2 (7 + 6 n))/(5 (-2 + 4 n)))*
+	      			 Kp^(2/5 + (12 (2 + n))/(5 (-2 + 4 n)))*
+	      			 Mp^(-(2/(-2 + 4 n))),
+	      	tstar -> ((Mp^5 Ep^(6 n + 7) Qo^(n + 2))/Kp^(6 (n + 2)))^(1/(4 n - 2))
+      	} /.data//N
 ];
 
 
-TimeParameters[Eprime_, KIc_, CL_, M_, Q_, n_] := 
+timeParameters[inpData_,prime_:True] := 
 Module[
-   		{
-   			Kprime, Cprime, Mprime, alpha,
-    		phi, tmk, tmmt, tmtkt, tkkt
-    	},
-   		
-   		alpha = (2^(n + 1) (2 n + 1)^n)/n^n;
-   		Kprime = 4 (2/\[Pi])^(1/2) KIc;
-   		Cprime = 2 CL; 
-   		Mprime = alpha M;
+   		{data,phi,tmk,tmmt,tmtkt,tkkt},
+   		data = inputDataTransformation[inpData,prime];
    
    		phi =
    		 If[
-   			Cprime==0,
+   			(Cp/.data)==0,
    			0,
-   			((Eprime^(10 n + 1) Mprime^3 Cprime^(4 (2 n - 1)) Q^(2 - n))/Kprime^(2 (2 + 5 n)))^(1/(2 n - 1))
+   			((Ep^(10 n + 1) Mp^3 Cp^(4 (2 n - 1)) Qo^(2 - n))/Kp^(2 (2 + 5 n)))^(1/(2 n - 1))/.data
    		];
    
       	(* Times along the edges of the rectangular space MKK~M~ *)
    		
-   		tmk = ((Mprime^5 Eprime^(6 n + 7) Q^(n + 2))/Kprime^(6 (n + 2)))^(1/(4 n - 2));
-   		tmmt = If[Cprime == 0, Infinity, ((Mprime^4 Q^(2 (n + 2)))/(Eprime^4 Cprime^(6 (n + 2))))^(1/(5 n + 2))];
-   		tmtkt = If[Cprime==0,0,((Mprime^4 Eprime^(4 (2 n + 1)) Cprime^(2 (2 n - 1)) Q^2)/Kprime^(8 (n + 1)))^(1/(2 n - 1))];	
-		tkkt = If[Cprime == 0, Infinity, ((Kprime^8 Q^2)/(Eprime^8 Cprime^10))^(1/3)];
+   		tmk = ((Mp^5 Ep^(6 n + 7) Qo^(n + 2))/Kp^(6 (n + 2)))^(1/(4 n - 2))/.data;
+   		tmmt = If[(Cp/.data)== 0, Infinity, ((Mp^4 Qo^(2 (n + 2)))/(Ep^4 Cp^(6 (n + 2))))^(1/(5 n + 2))/.data];
+   		tmtkt = If[(Cp/.data)==0,0,((Mp^4 Ep^(4 (2 n + 1)) Cp^(2 (2 n - 1)) Qo^2)/Kp^(8 (n + 1)))^(1/(2 n - 1))/.data];	
+		tkkt = If[(Cp/.data) == 0, Infinity, ((Kp^8 Qo^2)/(Ep^8 Cp^10))^(1/3)/.data];
 
    		{phi, tmk, tmmt, tmtkt, tkkt}
    
 ];
 
 
-ToNumericalScaling[V_?StringQ,n_,tau_,phi_:1] =
+toNumericalScaling[V_?StringQ,n_,tau_,phi_:1] :=
 Switch[
 		V,
 		"M",
@@ -125,14 +124,14 @@ Switch[
 				pstar-> tau ^ -(1/5),
 				qstar-> tau ^ -(2/5)
 			},
-		"MT",
+		"Mt",
 			{
 				Lstar-> (tau/(phi^(3(n+2)/(2(5n+2))))) ^ (1/4),
 				wstar-> (tau/(phi^(3(n+2)/(2(5n+2))))) ^ ((2-n)/(8(1+n))),
 				pstar-> (tau/(phi^(3(n+2)/(2(5n+2))))) ^ -(3n/(8(1+n))),
 				qstar-> (tau/(phi^(3(n+2)/(2(5n+2))))) ^ -(1/4)
 			},
-		"KT",
+		"Kt",
 			{
 				Lstar-> (tau/(phi^(1/2))) ^ (1/4),
 				wstar-> (tau/(phi^(1/2))) ^ (1/8),
@@ -140,6 +139,7 @@ Switch[
 				qstar-> (tau/(phi^(1/2))) ^ -(1/4) 
 			}
 ];
+
 
 End[]
 

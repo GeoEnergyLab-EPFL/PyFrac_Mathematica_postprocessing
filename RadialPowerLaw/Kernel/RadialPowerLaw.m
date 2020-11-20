@@ -2,17 +2,15 @@
 
 BeginPackage["RadialPowerLaw`"]
 
-(*Get[NotebookDirectory[]<>"RadialPowerLaw/Kernel/VertexSolutions.m"];*)
 Needs["RadialScaling`"]
 Needs["VertexSolutions`"]
-Needs["NearVertexSolutions`"]
 
 Needs["DescriptionUtilities`"];
 
-EarlySolution::usage = "Gives the early time solution for a radial HF driven by a power-law fluid"
-MiddleSolution::usage = "Gives the middle time solution for a radial HF driven by a power-law fluid"
-LaterSolution::usage = "Gives the large time solution for a radial HF driven by a power-law fluid"
-CriticalOpening::usage = "Gives the Adimensionl critical opening"
+earlySolution::usage = "Gives the early time solution for a radial HF driven by a power-law fluid"
+middleSolution::usage = "Gives the middle time solution for a radial HF driven by a power-law fluid"
+laterSolution::usage = "Gives the large time solution for a radial HF driven by a power-law fluid"
+criticalOpening::usage = "Gives the Adimensionl critical opening"
 
 Begin["`Private`"]
  
@@ -21,7 +19,7 @@ Get[Directory[]<>"/Documents/Wolfram Mathematica/PyFrac_Mathematica_postprocessi
 
 
 (* Early time MK EDGE *)
-EarlySolution[n_]:= 
+earlySolution[n_]:= 
 	Module[
 			{
 				times,Ns=40,
@@ -50,7 +48,7 @@ EarlySolution[n_]:=
 		];
 
 (* MEDIUM TIME simulation *)
-MiddleSolution[n_,phi_]:=
+middleSolution[n_,phi_]:=
 	Module[
 		{
 			tmin,tmax,times,Ns=40,ro,rp,
@@ -90,7 +88,7 @@ MiddleSolution[n_,phi_]:=
 		
 	];
 	
-LaterSolution[n_,phi_]:=
+laterSolution[nint_,phi_]:=
 	Module[
 		{
 			times,Ns=40,
@@ -104,11 +102,13 @@ LaterSolution[n_,phi_]:=
 		rp = Table[ (2*i - 1.)/(2.*30), {i, 1, 29}];
 		
 		If[
-			n > 0.5,
+			nint > 0.5,
 			{
    				(* Large time  Kt vertex *)
-  				KTtv = KTILDEVERTEXSOLUTION[x];
-  				KTtoN = ToNumericalScaling["KT", n, times, phi],
+  				KTtv = injectionVertexSolutions["K",{n -> nint},x,t,False];
+  				(*KTILDEVERTEXSOLUTION[x];*)
+  				KTtoN = toNumericalScaling["Kt",nint,times,phi];
+  				(*ToNumericalScaling["KT", n, times, phi],*)
   
   				ScalarSolution = 
   					{
@@ -122,8 +122,9 @@ LaterSolution[n_,phi_]:=
 			},
   			{  
 		    	(* Large time  Mt vertex *)
-		   		MTtv = MTILDEVERTEXSOLUTION[x, n ];
-		   		MTtoN = ToNumericalScaling["MT", n, times, phi];
+		   		MTtv = injectionVertexSolutions["Mt",{n -> nint},x,t,False];
+		   		(*MTILDEVERTEXSOLUTION[x, n ];*)
+		   		MTtoN = toNumericalScaling["MT", nint, times, phi];
 		    
 		   		ScalarSolution = 
 		   			{
@@ -145,7 +146,7 @@ LaterSolution[n_,phi_]:=
 		
 	];
 
-CriticalOpening[ASolution_,OmegaCritic_,t_]:=
+criticalOpening[ASolution_,OmegaCritic_,t_]:=
 	Module[
 		{
 			opgdata,opg,xl,time,k

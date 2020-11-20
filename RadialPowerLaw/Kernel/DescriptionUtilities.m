@@ -84,6 +84,7 @@ Mp::usage = "Symbol reserved for the fluid dimensionless viscosity"
 \[Mu]::usage = "Symbol reserved for the fluid viscosity"
 Vstar::usage = "Symbol reserved for the critical crack velocity in sub-critical crack growth"
 Nsubcritical::usage = " Symbol reserved for the sub-critical growth power law index"
+n::usage = "Symbol reserved for the fluid index n."
 
 Qo::usage =" Symbol reserved for the (total) injected flux "
 Vo::usage =" Symbol reserved for the (total) injected fluid"

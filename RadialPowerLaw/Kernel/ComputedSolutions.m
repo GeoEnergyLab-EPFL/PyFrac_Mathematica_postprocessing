@@ -4,20 +4,17 @@ BeginPackage["ComputedSolutions`"]
 
 Needs["DescriptionUtilities`"];
 
-EdgeSolution::usage = "Gives MK adn MM~ edge solutions";
-InsideSolution::usage = "Gives the solution inside the rectangle";
-SolutionTime::usage = "Gives the interval of time where each solution is valid";
+edgeSolution::usage = "Gives MK adn MM~ edge solutions";
+insideSolution::usage = "Gives the solution inside the rectangle";
+solutionTime::usage = "Gives the interval of time where each solution is valid";
 
 Begin["`Private`"]
 
 Get[Directory[]<>"/Documents/Wolfram Mathematica/PyFrac_Mathematica_postprocessing/RadialPowerLaw/Kernel/MKEdgePowerLaw.txt"];
 Get[Directory[]<>"/Documents/Wolfram Mathematica/PyFrac_Mathematica_postprocessing/RadialPowerLaw/Kernel/InsidePowerLaw.txt"];
 Get[Directory[]<>"/Documents/Wolfram Mathematica/PyFrac_Mathematica_postprocessing/RadialPowerLaw/Kernel/MMtEdgePowerLaw.txt"];
-(*Get[FileNameJoin[{"RadialPowerLaw","InsidePowerLaw.txt"}]];
-Get[FileNameJoin[{"RadialPowerLaw","MKEdgePowerLaw.txt"}]];
-Get[FileNameJoin[{"RadialPowerLaw","MMtEdgePowerLaw.txt"}]];*)
 
-EdgeSolution[V_?StringQ,n_,t_,rho_]:=
+edgeSolution[V_?StringQ,n_,t_,rho_]:=
 	Module[
 			{Scalar,Profile},
 			
@@ -90,7 +87,7 @@ EdgeSolution[V_?StringQ,n_,t_,rho_]:=
 	
 	];
 	
-InsideSolution[n_,phi_,t_,rho_]:=
+insideSolution[n_,phi_,t_,rho_]:=
 	Module[
 		{Scalar,Profile},
 		
@@ -163,7 +160,7 @@ InsideSolution[n_,phi_,t_,rho_]:=
 
 	];
 
-SolutionTime[V_?StringQ,n_]=
+solutionTime[V_?StringQ,n_]=
 	Switch[
 			V,
 			"MK",

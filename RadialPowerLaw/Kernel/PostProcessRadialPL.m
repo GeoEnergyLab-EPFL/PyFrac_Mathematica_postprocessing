@@ -9,9 +9,9 @@ Needs["Units`"];
  
 Needs["DescriptionUtilities`"];
 
-MakePlotsHFResults::usage = "Function creating plots from the results structure of a HF"
-BackToDimensional::usage = "Back to dimensional results from dimensionless results structure of a HF"
-MakeTablesHFResults::usage = "Function creating Tables from the results structure of a HF"
+makePlotsHFResults::usage = "Function creating plots from the results structure of a HF"
+backToDimensional::usage = "Back to dimensional results from dimensionless results structure of a HF"
+makeTablesHFResults::usage = "Function creating Tables from the results structure of a HF"
 
 
 Begin["`Private`"] (* Begin Private Context *) 
@@ -98,10 +98,10 @@ LegendsRulesHF[Dimensionless_,opts: OptionsPattern[]]:=Module[{legends},
 	
 ];
 
-Options[MakePlotsHFResults] := {HistoryProfile -> True, 
+Options[makePlotsHFResults] := {HistoryProfile -> True, 
    Dimensionless -> True, PlotStyle -> Automatic, Filling -> False, Animation-> True,FontFamily-> "Times",
    FontSize-> Larger,LogLog-> False,MovingMesh-> False,PlotMarkers-> None,PlotRange-> All};
-MakePlotsHFResults[results_, opts :   OptionsPattern[]] :=
+makePlotsHFResults[results_, opts :   OptionsPattern[]] :=
   Module[{resultsField, resultsScal, legends, animationTime, 
     anOpening, anPressure, maxX, maxO, maxPf,ScalPlots,ScalFields,PressFields,i},
       
@@ -217,8 +217,8 @@ MakePlotsHFResults[results_, opts :   OptionsPattern[]] :=
    ];
 
 (**************************----********************************)
-Options[MakeTablesHFResults]:= {HistoryProfile -> True, Background -> ColorData[18][7],Dimensionless -> True, FontSize-> Larger ,FontFamily-> "Times"}
-MakeTablesHFResults[results_,opts :OptionsPattern[]]:=Module[{legends,resultsField,resultsScal,ScalFields,PressFields,auxFrac,auxInlet,auxOpPro,auxPiPro,i,Nt},
+Options[makeTablesHFResults]:= {HistoryProfile -> True, Background -> ColorData[18][7],Dimensionless -> True, FontSize-> Larger ,FontFamily-> "Times"}
+makeTablesHFResults[results_,opts :OptionsPattern[]]:=Module[{legends,resultsField,resultsScal,ScalFields,PressFields,auxFrac,auxInlet,auxOpPro,auxPiPro,i,Nt},
 	
 	Off[Symbol::argx];
 	Off[Intersection::heads];
@@ -284,8 +284,8 @@ MakeTablesHFResults[results_,opts :OptionsPattern[]]:=Module[{legends,resultsFie
 
 
 (**************************----********************************)
-Options[BackToDimensional] := {HistoryProfile -> True,MovingMesh-> False}
-BackToDimensional[results_, Scales_, Units_, OptionsPattern[]] := 
+Options[backToDimensional] := {HistoryProfile -> True,MovingMesh-> False}
+backToDimensional[results_, Scales_, Units_, OptionsPattern[]] := 
  Module[{aux,PiAux,OpAux,LAux,Lcoef,pcoef,wcoef,tcoef,resultsScal,ScalFields,i,qcoef,QeffAux,Velaux,Effaux},
   (*note this function can also be used  to express to switch the results back to another scaling if need be. *)
   (* Scales is a replacement rule of the form tstar-> , Lstar->  etc. defining the scales in the scaling in which  

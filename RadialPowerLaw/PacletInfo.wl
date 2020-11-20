@@ -15,7 +15,7 @@ Paclet[
 	"Organization" -> "https://www.epfl.ch/labs/gel/",
     "Loading" -> "Automatic",
     "Extensions" -> { 
-            {"Kernel", Root -> "Kernel", "Context" ->{"RadialPowerLaw`","DescriptionUtilities`","NearVertexSolutions`","RadialScaling`","VertexSolutions`","PostProcessRadialPL`","ComputedSolutions`"}}
+            {"Kernel", Root -> "Kernel", "Context" ->{"RadialPowerLaw`","DescriptionUtilities`","RadialScaling`","VertexSolutions`","PostProcessRadialPL`","ComputedSolutions`"}}
         }
 ]
 
