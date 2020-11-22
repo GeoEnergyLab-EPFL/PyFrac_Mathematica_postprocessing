@@ -15,7 +15,7 @@ Geo-energy Laboratory EPFL
 
 BeginPackage["rectangularMesh`"]
 
-meshPlan::usage =  "meshPlan[ Lx, Nx, Ly, Ny] It computes: conn, centers, Nelts, ElemNei";
+meshPlan::usage =  "meshPlan[ Lx, Nx, Ly, Ny] It computes: {hx,hy,Nelts,vertexes,conn,centers,Neighbors}";
 getNeighbors::usage = "getNeighbors[ element, Nx, Ny] It returns {left,right,bottom,up} of element.";
 
 Begin["`Private`"] 
@@ -43,7 +43,7 @@ getNeighbors[Nx_, Ny_] :=
 getVertexesCoords[Lx_, Nx_, Ly_, Ny_] := 
  With[{hx = geth[Lx, Nx], hy = geth[Ly, Ny]}, 
   Flatten[Transpose[
-    Table[  {-Lx + i hx, -Ly + j hy}, {i, 0, Nx}, {j, 0, Ny}] ] , 1]]
+    Table[  {-Lx - hx/2+ i hx, -Ly -hy/2+ j hy}, {i, 0, Nx}, {j, 0, Ny}] ] , 1]]
 
 (* get the connectivity matrix between one element and the \
 corresponding vertexes *)

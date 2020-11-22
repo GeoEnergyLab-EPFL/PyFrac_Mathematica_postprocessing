@@ -19,7 +19,7 @@ Needs[ "getSINGLEfrac`"];
 Needs[ "getGENERALfrac`"];
 
 postProcessPyfrac::usage = "postProcessPyfrac[ Simpath,Case] it returns an association";
-meshPlan::usage =  "meshPlan[ Lx, Nx, Ly, Ny] It computes: conn, centers, Nelts, ElemNei";
+meshPlan::usage =  "meshPlan[ Lx, Nx, Ly, Ny] It computes: {hx,hy,Nelts,vertexes,conn,centers,Neighbors}";
 
 (*meshPlan::usage =  "meshPlan[ Lx, Nx, Ly, Ny] It computes: conn, centers, Nelts, ElemNei";
 getNeighbors::usage = "getNeighbors[ element, Nx, Ny] It returns {left,right,bottom,up} of element.";*)
