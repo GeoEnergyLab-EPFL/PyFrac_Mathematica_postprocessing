@@ -1,4 +1,5 @@
 (* ::Package:: *)
+
 	
 (* --------------------------------------------- 
 
@@ -21,7 +22,7 @@ Begin["`Private`"]
 
 (* ----------- Mesh functions ------------ *)
 (* get the cell size *)
-geth[L_, N_] := 2 L/ N
+geth[L_, N_] := 2 L/ (N-1)
 
 (* get the Neighbors of one element *)
 getElemNeighbors[elem_, Nx_, Ny_] := 
