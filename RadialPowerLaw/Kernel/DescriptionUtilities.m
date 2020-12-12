@@ -72,6 +72,10 @@ SigmaO::usage = " Symbol reserved for initial constant clamping stress normal to
 \[ScriptCapitalV]::usage = "Dimensionless storage coefficient."
 
 
+(* Buoyancy related parameters *)
+\[CapitalDelta]\[Gamma]::usage = "Buoyancy of the gravity driven fracture."
+
+
 WellboreRadius::usage = " Symbol reserved for wellbore radis "
 
 Ep::usage = " Symbole reserved for the plane strain Young's modulus Ep=E/(1-nu^2) "
