@@ -27,6 +27,7 @@ getNeighbors::usage = "getNeighbors[ element, Nx, Ny] It returns {left,right,bot
 Begin["`Private`"];
 postProcessPyfrac[Simpath_, Case_] := Which[Case == "double_fracture",postprocDOUBLEfrac[Simpath],
 											Case == "single_fracture",postprocSINGLEfrac[Simpath],
+											Case == "single_fracture_oldFR",postprocSINGLEfracOF[Simpath],
 	                                                             True,Print[" Nothing donee"]];
 
 postprocDOUBLEfrac[Simpath_] := Module[{result, data},
@@ -72,6 +73,15 @@ postprocSINGLEfrac[Simpath_] := Module[{result, data,varString,timeString},
 	result = AssociateTo[result, "pf_B(t)"           ->getGENERALfrac`getVARofT[data,varString,timeString]];
 	
 	
+	result
+	]
+	
+postprocSINGLEfracOF[Simpath_] := Module[{result, data,varString,timeString},
+	result = Association[{"Simpath"-> Simpath}];
+	data = Import[Simpath, "RawJSON"];
+	result = AssociateTo[result, getSINGLEfrac`getFrOF[data]];
+	result = AssociateTo[result, "LastMesh"         ->getGENERALfrac`getLastMesh[data]];
+		
 	result
 	]
 
