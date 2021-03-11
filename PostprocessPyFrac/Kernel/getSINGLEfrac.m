@@ -1,4 +1,5 @@
 (* ::Package:: *)
+
 	
 (* --------------------------------------------- 
 
@@ -15,6 +16,7 @@ Geo-energy Laboratory EPFL
 BeginPackage["getSINGLEfrac`"]
 
 getFr::usage =  "to be documented";
+getFrOF::usage =  "to be documented";
 
 Begin["`Private`"] 
 
@@ -75,7 +77,19 @@ getFr[data_]:= Module[{ frLst,
 	rBottomVsT = Table[{times[[j]], rBottom[[j]] },{j,1,Length[times]}];		
     return = <|"SingleFractures"->singlefronts,"times"->times,"xinj"->xinj,"yinj"->yinj,"rRightVsT"->rRightVsT,"rLeftVsT"->rLeftVsT,"rUpVsT"->rUpVsT,"rBottomVsT"->rBottomVsT|>;
 	return](* end module *)   
-     
+    
+getFrOF[data_]:= Module[{ frLst,
+						nOfTstps,
+						times,
+						return},
+    frLst    = data["Fr_list"][[1]]; (* fracture lists *)
+	times = data["time_srs_of_Fr_list"][[1]];
+			
+    return = <|"SingleFractures"->frLst,"times"->times|>;
+	return](* end module *)   
+	
+	
+	
 End[] (* End Private Context *)
 
 EndPackage[]
