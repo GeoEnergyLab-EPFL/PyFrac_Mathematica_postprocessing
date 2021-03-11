@@ -1,0 +1,1154 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     54340,       1146]
+NotebookOptionsPosition[     50124,       1066]
+NotebookOutlinePosition[     50557,       1083]
+CellTagsIndexPosition[     50514,       1080]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "Mathematica Notebook created by Carlo Peruzzo on Tuesday 26th October 2020\n\
+",
+ StyleBox["EPFL ENAC IIC GEL\nGC B1 385 (B\[AHat]timent GC)\nStation 18, 1015 \
+Lausanne, Switzerland\nPhone: +41 (0)21 693 76 47\ncarlo.peruzzo@epfl.ch\n\
+Geo-energy Laboratory EPFL ", "Affiliation"]
+}], "Author",
+ CellChangeTimes->{{3.796300210484599*^9, 3.796300219391952*^9}, {
+  3.796468451607836*^9, 3.7964685395685797`*^9}, {3.812721122998757*^9, 
+  3.812721130926182*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"6408a379-563d-41e8-865c-b854ae3bb5c1"],
+
+Cell[CellGroupData[{
+
+Cell["Paclet Manager", "Title",
+ CellChangeTimes->{{3.813471867720047*^9, 3.813471913526698*^9}, {
+  3.81399450445094*^9, 
+  3.813994507336409*^9}},ExpressionUUID->"70e661bc-8136-4638-acf0-\
+a0dc0b6dd23d"],
+
+Cell["Some useful instructions", "Subtitle",
+ CellChangeTimes->{{3.788848769264887*^9, 3.7888488264240294`*^9}, {
+   3.797502054688923*^9, 3.7975020615065327`*^9}, 3.804481728462689*^9, {
+   3.8133901495253468`*^9, 3.81339015478095*^9}, {3.813471922655423*^9, 
+   3.813471928518811*^9}, {3.813471979615909*^9, 3.813472013634446*^9}, {
+   3.813994510206403*^9, 
+   3.813994514809849*^9}},ExpressionUUID->"ca98902a-ae9a-40b3-9307-\
+3f1e7daf08c3"],
+
+Cell["\<\
+https : // www.wolframcloud.com/obj/tgayley/Published/PacletDevelopment.nb\
+\>", "Text",
+ CellChangeTimes->{{3.81399694309214*^9, 
+  3.813996954137129*^9}},ExpressionUUID->"5ea5eea7-a2c9-4f73-af22-\
+13fd94f06de9"],
+
+Cell[CellGroupData[{
+
+Cell["Creating a paclet", "Subsubsection",
+ CellChangeTimes->{{3.8134721624505043`*^9, 3.813472203456958*^9}, 
+   3.813481620581512*^9, {3.813994524392271*^9, 
+   3.813994537312499*^9}},ExpressionUUID->"6e84f313-fc91-4971-a3cd-\
+9897abe47489"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CreatePacletArchive", "[", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<PostprocessPyFrac\>\""}], "}"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.813472475314183*^9, {3.813484060923469*^9, 3.813484062886668*^9}, {
+   3.813484217587714*^9, 3.813484217910076*^9}, {3.813484357099663*^9, 
+   3.8134843923462276`*^9}, {3.813484425067268*^9, 3.8134844275350533`*^9}, {
+   3.813484474452115*^9, 3.813484475493972*^9}, {3.813486417762484*^9, 
+   3.8134864438250027`*^9}, {3.813486667004237*^9, 3.813486699483807*^9}, 
+   3.813488134122452*^9, 3.8139163253395767`*^9, {3.813920756436427*^9, 
+   3.8139207598341017`*^9}, {3.8139233145875387`*^9, 3.813923325273066*^9}, 
+   3.813923602104233*^9, 3.813994469920277*^9, {3.813994543010943*^9, 
+   3.8139945647266493`*^9}, {3.822364790332547*^9, 3.822364794841495*^9}, {
+   3.822364875360545*^9, 3.8223648811569223`*^9}, {3.82236569163048*^9, 
+   3.822365695896865*^9}},
+ Background->RGBColor[0.87, 0.94, 1],
+ CellLabel->"",ExpressionUUID->"515d1425-57b2-436b-a515-f6c5c53cc0ce"],
+
+Cell[BoxData["\<\"/Users/amoeri/Documents/Wolfram \
+Mathematica/PyFrac_Mathematica_postprocessing/RadialPowerLaw-0.0.1.paclet\"\>\
+"], "Output",
+ CellChangeTimes->{
+  3.813916342565962*^9, 3.8139170852835217`*^9, 3.8139194196610813`*^9, {
+   3.8139207445126057`*^9, 3.813920760647813*^9}, 3.8139207930087633`*^9, {
+   3.813921100284433*^9, 3.813921108400279*^9}, 3.813921809870926*^9, {
+   3.813922140559363*^9, 3.813922159730874*^9}, 3.8139226925879993`*^9, 
+   3.813923339636837*^9, 3.8139234542574863`*^9, 3.813923619989908*^9, 
+   3.8139238641434937`*^9, {3.813994554294263*^9, 3.813994565217368*^9}, {
+   3.814007065948533*^9, 3.814007094386688*^9}, 3.8223648253478928`*^9, 
+   3.822364888225087*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"1489a57a-cebb-4f99-b23a-2a21adb98dee"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SECTION 1", "Section",
+ CellChangeTimes->{{3.813996460597728*^9, 3.8139964624048357`*^9}, {
+  3.8139965094696693`*^9, 
+  3.813996519082062*^9}},ExpressionUUID->"7171518b-5edc-44ff-aec7-\
+756be54c6b35"],
+
+Cell[CellGroupData[{
+
+Cell["Installing a paclet received as an archive.", "Subsubsection",
+ CellChangeTimes->{{3.8134721624505043`*^9, 3.813472203456958*^9}, 
+   3.813481620581512*^9, {3.813994524392271*^9, 3.813994537312499*^9}, {
+   3.813994579064625*^9, 3.813994580518236*^9}, {3.813996194452447*^9, 
+   3.81399620409964*^9}},ExpressionUUID->"25ebd778-5a10-4bbb-85c8-\
+3205e3916055"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mypaclet", " ", "=", " ", 
+  RowBox[{
+  "PacletInstall", "[", 
+   "\"\</Users/amoeri/Documents/Wolfram \
+Mathematica/PyFrac_Mathematica_postprocessing/PyFracPost-0.0.2.paclet\>\"", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.813472475314183*^9, {3.813484060923469*^9, 3.813484062886668*^9}, {
+   3.813484217587714*^9, 3.813484217910076*^9}, {3.813484357099663*^9, 
+   3.8134843923462276`*^9}, {3.813484425067268*^9, 3.8134844275350533`*^9}, {
+   3.813484474452115*^9, 3.813484475493972*^9}, {3.813486417762484*^9, 
+   3.8134864438250027`*^9}, {3.813486667004237*^9, 3.813486699483807*^9}, 
+   3.813488134122452*^9, 3.8139163253395767`*^9, {3.813920756436427*^9, 
+   3.8139207598341017`*^9}, {3.8139233145875387`*^9, 3.813923325273066*^9}, 
+   3.813923602104233*^9, 3.813994469920277*^9, {3.813994543010943*^9, 
+   3.8139946288732977`*^9}, 3.822364847343483*^9, 3.8223649095085773`*^9, {
+   3.822365713016824*^9, 3.822365734096291*^9}},
+ Background->RGBColor[0.87, 0.94, 1],
+ CellLabel->
+  "In[153]:=",ExpressionUUID->"52fa9856-2bc1-4739-b564-3750306f306e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["PacletObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquarePlusIconMedium"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            GraphicsBox[{
+              Thickness[0.0416667], {
+               FaceForm[{
+                 RGBColor[0.961, 0.961, 0.961], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+                0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{12.5454, 
+                22.5972}, {7.5464, 20.5002}, {2.5454, 18.4022}, {2.5454, 
+                12.5982}, {2.5454, 12.5972}, {2.5454, 6.7952}, {7.5454, 
+                4.6962}, {7.546, 4.6972}, {12.5454, 2.5992}, {17.5454, 
+                4.6972}, {17.5454, 4.6962}, {22.5454, 6.7952}, {22.5454, 
+                12.5972}, {22.5454, 12.5982}, {22.5454, 18.4022}}}]}, {
+               FaceForm[{
+                 RGBColor[0.898, 0.898, 0.898], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}}}, {{{17.125, 8.3359}, {17.125, 
+                14.0569}, {16.875, 14.0569}, {16.875, 8.3359}, {17., 
+                8.1169}, {21.952, 6.0399}, {22.049, 6.2709}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}}}, {{{7.125, 8.3359}, {7.125, 14.0569}, {
+                6.875, 14.0569}, {6.875, 8.3359}, {1.952, 6.2709}, {2.048, 
+                6.0399}, {7., 8.1169}}}], 
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}}}, {{{11.8745, 6.2383}, {6.9515, 4.1733}, {7.0475, 
+                3.9423}, {11.9995, 6.0193}, {16.9515, 3.9423}, {17.0475, 
+                4.1733}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}}}, {{{17.125, 14.1392}, {17.125, 
+                19.8602}, {16.875, 19.8602}, {16.875, 14.1392}, {17., 
+                13.9202}, {21.952, 11.8432}, {22.049, 12.0742}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}}}, {{{7.125, 14.1392}, {7.125, 19.8602}, {
+                6.875, 19.8602}, {6.875, 14.1392}, {1.952, 12.0742}, {2.048, 
+                11.8432}, {7., 13.9202}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}}}, {{{11.8746, 21.3633}, {11.8746, 18.3563}, {
+                11.9996, 18.3033}, {12.1246, 18.3563}, {12.1246, 21.3633}, {
+                11.9996, 21.4153}}}]}, {
+               FaceForm[{
+                 RGBColor[0.749, 0.749, 0.749], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {1, 3, 
+                 3}}}, {{{8.292, 19.8594}, {12., 21.4154}, {15.707, 
+                 19.8594}, {12., 18.3034}}, {{17.5, 19.5274}, {17.5, 
+                 20.1924}, {12., 22.5004}, {6.5, 20.1924}, {6.5, 19.5284}, {
+                 12., 17.2194}, {12., 17.2194}, {15.7, 18.7724}, {17.5, 
+                 19.5274}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}}}, {{{11.5, 8.5156}, {11.5, 6.4876}, {11.5, 
+                5.4026}, {12.5, 5.8226}, {12.5, 8.5156}, {12., 8.3056}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                 0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+                 0}, {0, 1, 0}}}, {{{21.5, 6.4873}, {17.5, 4.8083}, {17.5, 
+                 9.5283}, {21.5, 11.2073}}, {{21.5, 12.7113}, {21.5, 
+                 12.2913}, {17., 10.4033}, {16.5, 10.6133}, {16.5, 10.1943}, {
+                 15.707, 9.8613}, {16.5, 9.5283}, {16.5, 4.8083}, {16.5, 
+                 4.8093}, {16.5, 4.3903}, {15.707, 4.0573}, {17., 3.5143}, {
+                 22.5, 5.8223}, {22.5, 12.2913}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                 0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+                 0}, {0, 1, 0}}}, {{{6.5, 4.8086}, {2.5, 6.4876}, {2.5, 
+                 11.2066}, {6.5, 9.5286}}, {{7.5, 9.1096}, {7.5, 9.1096}, {
+                 7.5, 9.5286}, {8.292, 9.8616}, {7.5, 10.1936}, {7.5, 
+                 10.6136}, {7., 10.4036}, {2.5, 12.2906}, {2.5, 12.7106}, {
+                 1.5, 12.2916}, {1.5, 5.8226}, {7., 3.5146}, {8.293, 
+                 4.0576}, {7.5, 4.3906}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                 0, 1, 0}, {0, 1, 0}}}, {{{3.2925, 17.7622}, {7.0005, 
+                 19.3182}, {10.7075, 17.7622}, {7.0005, 16.2062}}, {{6.5005, 
+                 10.6122}, {2.5005, 12.2912}, {2.5005, 17.0102}, {6.5005, 
+                 15.3322}}, {{7.5005, 10.1932}, {7.5005, 10.6122}, {7.5005, 
+                 15.3322}, {12.0005, 17.2202}, {12.5005, 17.0102}, {12.5005, 
+                 18.0952}, {7.0005, 20.4032}, {1.5005, 18.0952}, {1.5005, 
+                 11.6262}, {7.0005, 9.3182}, {8.2935, 9.8612}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                 0, 1, 0}, {0, 1, 0}}}, {{{21.5, 12.291}, {17.5, 10.612}, {
+                 17.5, 15.332}, {21.5, 17.01}}, {{13.293, 17.762}, {17., 
+                 19.318}, {20.708, 17.762}, {17., 16.207}}, {{17., 20.403}, {
+                 11.5, 18.095}, {11.5, 17.01}, {12., 17.22}, {16.5, 15.332}, {
+                 16.5, 10.612}, {16.5, 10.194}, {15.706, 9.861}, {17., 
+                 9.318}, {22.5, 11.626}, {22.5, 18.095}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                 0, 1, 0}, {0, 1, 0}}}, {{{16.4995, 4.3906}, {12.4995, 
+                 2.7116}, {12.4995, 7.4316}, {16.4995, 9.1096}}, {{11.4995, 
+                 2.7116}, {7.4995, 4.3906}, {7.4995, 9.1096}, {11.4995, 
+                 7.4316}}, {{16.4995, 10.6136}, {16.4995, 10.1946}, {11.9995, 
+                 8.3056}, {8.2915, 9.8616}, {7.4995, 10.1936}, {7.4995, 
+                 10.6146}, {6.4995, 10.1946}, {6.4995, 3.7256}, {11.9995, 
+                 1.4176}, {17.4995, 3.7256}, {17.4995, 10.1946}}}]}, {
+               FaceForm[{
+                 RGBColor[0.965, 0.765, 0.749], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}}}, {{{12., 17.6616}, {16.945, 15.5856}, {16.945, 
+                9.9376}, {12., 7.8636}, {7.055, 9.9376}, {7.055, 
+                15.5856}}}]}, {
+               FaceForm[{
+                 RGBColor[0.91, 0.655, 0.635], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{12.125, 
+                17.7627}, {11.875, 17.7627}, {11.875, 12.0407}, {6.952, 
+                9.9757}, {7.048, 9.7447}, {12., 11.8227}, {16.952, 9.7447}, {
+                17.048, 9.9757}, {12.125, 12.0407}}}]}, {
+               FaceForm[{
+                 RGBColor[0.867, 0.067, 0.], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 
+                 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+                 0}}}, {{{12.5, 8.5146}, {12.5, 13.2336}, {16.5, 14.9116}, {
+                 16.5, 10.1926}}, {{7.5, 14.9116}, {11.5, 13.2336}, {11.5, 
+                 8.5146}, {7.5, 10.1926}}, {{15.708, 15.6636}, {12., 
+                 14.1086}, {8.292, 15.6636}, {12., 17.2206}}, {{12., 
+                 18.3046}, {6.5, 15.9956}, {6.5, 9.5286}, {12., 7.2206}, {
+                 17.5, 9.5286}, {17.5, 15.9956}}}]}}, AspectRatio -> 
+             Automatic, ImageSize -> {24., 24.}, 
+             PlotRange -> {{0., 24.}, {0., 24.}}], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Name: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"PyFracPost\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Version: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"0.0.2\"", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource[
+               "FEBitmaps", "SquareMinusIconMedium"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                AbsoluteCurrentValue[Magnification]}]], 
+            GraphicsBox[{
+              Thickness[0.0416667], {
+               FaceForm[{
+                 RGBColor[0.961, 0.961, 0.961], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+                0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{12.5454, 
+                22.5972}, {7.5464, 20.5002}, {2.5454, 18.4022}, {2.5454, 
+                12.5982}, {2.5454, 12.5972}, {2.5454, 6.7952}, {7.5454, 
+                4.6962}, {7.546, 4.6972}, {12.5454, 2.5992}, {17.5454, 
+                4.6972}, {17.5454, 4.6962}, {22.5454, 6.7952}, {22.5454, 
+                12.5972}, {22.5454, 12.5982}, {22.5454, 18.4022}}}]}, {
+               FaceForm[{
+                 RGBColor[0.898, 0.898, 0.898], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}}}, {{{17.125, 8.3359}, {17.125, 
+                14.0569}, {16.875, 14.0569}, {16.875, 8.3359}, {17., 
+                8.1169}, {21.952, 6.0399}, {22.049, 6.2709}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}}}, {{{7.125, 8.3359}, {7.125, 14.0569}, {
+                6.875, 14.0569}, {6.875, 8.3359}, {1.952, 6.2709}, {2.048, 
+                6.0399}, {7., 8.1169}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}}}, {{{11.8745, 6.2383}, {6.9515, 4.1733}, {7.0475, 
+                3.9423}, {11.9995, 6.0193}, {16.9515, 3.9423}, {17.0475, 
+                4.1733}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}}}, {{{17.125, 14.1392}, {17.125, 
+                19.8602}, {16.875, 19.8602}, {16.875, 14.1392}, {17., 
+                13.9202}, {21.952, 11.8432}, {22.049, 12.0742}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}}}, {{{7.125, 14.1392}, {7.125, 19.8602}, {
+                6.875, 19.8602}, {6.875, 14.1392}, {1.952, 12.0742}, {2.048, 
+                11.8432}, {7., 13.9202}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}}}, {{{11.8746, 21.3633}, {11.8746, 18.3563}, {
+                11.9996, 18.3033}, {12.1246, 18.3563}, {12.1246, 21.3633}, {
+                11.9996, 21.4153}}}]}, {
+               FaceForm[{
+                 RGBColor[0.749, 0.749, 0.749], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {1, 3, 
+                 3}}}, {{{8.292, 19.8594}, {12., 21.4154}, {15.707, 
+                 19.8594}, {12., 18.3034}}, {{17.5, 19.5274}, {17.5, 
+                 20.1924}, {12., 22.5004}, {6.5, 20.1924}, {6.5, 19.5284}, {
+                 12., 17.2194}, {12., 17.2194}, {15.7, 18.7724}, {17.5, 
+                 19.5274}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}}}, {{{11.5, 8.5156}, {11.5, 6.4876}, {11.5, 
+                5.4026}, {12.5, 5.8226}, {12.5, 8.5156}, {12., 8.3056}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                 0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+                 0}, {0, 1, 0}}}, {{{21.5, 6.4873}, {17.5, 4.8083}, {17.5, 
+                 9.5283}, {21.5, 11.2073}}, {{21.5, 12.7113}, {21.5, 
+                 12.2913}, {17., 10.4033}, {16.5, 10.6133}, {16.5, 10.1943}, {
+                 15.707, 9.8613}, {16.5, 9.5283}, {16.5, 4.8083}, {16.5, 
+                 4.8093}, {16.5, 4.3903}, {15.707, 4.0573}, {17., 3.5143}, {
+                 22.5, 5.8223}, {22.5, 12.2913}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                 0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+                 0}, {0, 1, 0}}}, {{{6.5, 4.8086}, {2.5, 6.4876}, {2.5, 
+                 11.2066}, {6.5, 9.5286}}, {{7.5, 9.1096}, {7.5, 9.1096}, {
+                 7.5, 9.5286}, {8.292, 9.8616}, {7.5, 10.1936}, {7.5, 
+                 10.6136}, {7., 10.4036}, {2.5, 12.2906}, {2.5, 12.7106}, {
+                 1.5, 12.2916}, {1.5, 5.8226}, {7., 3.5146}, {8.293, 
+                 4.0576}, {7.5, 4.3906}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                 0, 1, 0}, {0, 1, 0}}}, {{{3.2925, 17.7622}, {7.0005, 
+                 19.3182}, {10.7075, 17.7622}, {7.0005, 16.2062}}, {{6.5005, 
+                 10.6122}, {2.5005, 12.2912}, {2.5005, 17.0102}, {6.5005, 
+                 15.3322}}, {{7.5005, 10.1932}, {7.5005, 10.6122}, {7.5005, 
+                 15.3322}, {12.0005, 17.2202}, {12.5005, 17.0102}, {12.5005, 
+                 18.0952}, {7.0005, 20.4032}, {1.5005, 18.0952}, {1.5005, 
+                 11.6262}, {7.0005, 9.3182}, {8.2935, 9.8612}}}], 
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                 0, 1, 0}, {0, 1, 0}}}, {{{21.5, 12.291}, {17.5, 10.612}, {
+                 17.5, 15.332}, {21.5, 17.01}}, {{13.293, 17.762}, {17., 
+                 19.318}, {20.708, 17.762}, {17., 16.207}}, {{17., 20.403}, {
+                 11.5, 18.095}, {11.5, 17.01}, {12., 17.22}, {16.5, 15.332}, {
+                 16.5, 10.612}, {16.5, 10.194}, {15.706, 9.861}, {17., 
+                 9.318}, {22.5, 11.626}, {22.5, 18.095}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 
+                 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                 0, 1, 0}, {0, 1, 0}}}, {{{16.4995, 4.3906}, {12.4995, 
+                 2.7116}, {12.4995, 7.4316}, {16.4995, 9.1096}}, {{11.4995, 
+                 2.7116}, {7.4995, 4.3906}, {7.4995, 9.1096}, {11.4995, 
+                 7.4316}}, {{16.4995, 10.6136}, {16.4995, 10.1946}, {11.9995, 
+                 8.3056}, {8.2915, 9.8616}, {7.4995, 10.1936}, {7.4995, 
+                 10.6146}, {6.4995, 10.1946}, {6.4995, 3.7256}, {11.9995, 
+                 1.4176}, {17.4995, 3.7256}, {17.4995, 10.1946}}}]}, {
+               FaceForm[{
+                 RGBColor[0.965, 0.765, 0.749], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}}}, {{{12., 17.6616}, {16.945, 15.5856}, {16.945, 
+                9.9376}, {12., 7.8636}, {7.055, 9.9376}, {7.055, 
+                15.5856}}}]}, {
+               FaceForm[{
+                 RGBColor[0.91, 0.655, 0.635], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{12.125, 
+                17.7627}, {11.875, 17.7627}, {11.875, 12.0407}, {6.952, 
+                9.9757}, {7.048, 9.7447}, {12., 11.8227}, {16.952, 9.7447}, {
+                17.048, 9.9757}, {12.125, 12.0407}}}]}, {
+               FaceForm[{
+                 RGBColor[0.867, 0.067, 0.], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 
+                 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 
+                 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+                 0}}}, {{{12.5, 8.5146}, {12.5, 13.2336}, {16.5, 14.9116}, {
+                 16.5, 10.1926}}, {{7.5, 14.9116}, {11.5, 13.2336}, {11.5, 
+                 8.5146}, {7.5, 10.1926}}, {{15.708, 15.6636}, {12., 
+                 14.1086}, {8.292, 15.6636}, {12., 17.2206}}, {{12., 
+                 18.3046}, {6.5, 15.9956}, {6.5, 9.5286}, {12., 7.2206}, {
+                 17.5, 9.5286}, {17.5, 15.9956}}}]}}, AspectRatio -> 
+             Automatic, ImageSize -> {24., 24.}, 
+             PlotRange -> {{0., 24.}, {0., 24.}}], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Name: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"PyFracPost\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Version: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"0.0.2\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Location: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"/Users/amoeri/Library/Mathematica/Paclets/Repository/\
+PyFracPost-0.0.2\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Description: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                  "\"Some functions to import easily PyFrac results into \
+Mathematica\"", Short], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  PacletObject[
+   Association[
+   "Name" -> "PyFracPost", "Version" -> "0.0.2", "MathematicaVersion" -> 
+    "10+", "SystemID" -> {"MacOSX-x86-64", "Linux-x86-64", "Windows-x-86-64"},
+     "Description" -> 
+    "Some functions to import easily PyFrac results into Mathematica", 
+    "Creator" -> "Carlo Peruzzo", "Support" -> "carlo.peruzzo@epfl.ch", 
+    "Organization" -> "https://www.epfl.ch/labs/gel/", "Loading" -> 
+    "Automatic", 
+    "Extensions" -> {{
+      "Kernel", "Root" -> "Kernel", 
+       "Context" -> {
+        "PostprocessPyFrac`", "getDOUBLEfrac`", "getGENERALfrac`", 
+         "getSINGLEfrac`", "rectangularMesh`"}}}, "Location" -> 
+    "/Users/amoeri/Library/Mathematica/Paclets/Repository/PyFracPost-0.0.2"]],
+  
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.813916342565962*^9, 3.8139170852835217`*^9, 3.8139194196610813`*^9, {
+   3.8139207445126057`*^9, 3.813920760647813*^9}, 3.8139207930087633`*^9, {
+   3.813921100284433*^9, 3.813921108400279*^9}, 3.813921809870926*^9, {
+   3.813922140559363*^9, 3.813922159730874*^9}, 3.8139226925879993`*^9, 
+   3.813923339636837*^9, 3.8139234542574863`*^9, 3.813923619989908*^9, 
+   3.8139238641434937`*^9, {3.813994554294263*^9, 3.813994565217368*^9}, 
+   3.813994632329135*^9, 3.813994675465029*^9, 3.8223648546373367`*^9, {
+   3.822364891208099*^9, 3.822364912325589*^9}, {3.822365716242736*^9, 
+   3.822365735557563*^9}},
+ CellLabel->
+  "Out[153]=",ExpressionUUID->"f5b31ecc-724d-4096-a025-45a7d7422cb8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mypaclet", "[", "All", "]"}]], "Input",
+ CellChangeTimes->{{3.813994783477366*^9, 3.813994818854653*^9}},
+ Background->RGBColor[0.87, 0.94, 1],
+ CellLabel->"In[4]:=",ExpressionUUID->"75c30bfb-ae08-4993-8266-6f803f774fde"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"Name\"\>", "\[Rule]", "\<\"PyFracPost\"\>"}], ",", 
+   RowBox[{"\<\"Version\"\>", "\[Rule]", "\<\"0.0.1\"\>"}], ",", 
+   RowBox[{"\<\"WolframVersion\"\>", "\[Rule]", "\<\"12+\"\>"}], ",", 
+   RowBox[{"\<\"Qualifier\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"SystemID\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\<\"MacOSX-x86-64\"\>", ",", "\<\"Linux-x86-64\"\>", 
+      ",", "\<\"Windows-x-86-64\"\>"}], "}"}]}], ",", 
+   RowBox[{"\<\"Description\"\>", 
+    "\[Rule]", "\<\"Some functions to import easily PyFrac results into \
+Mathematica\"\>"}], ",", 
+   RowBox[{"\<\"Category\"\>", "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{"\<\"Keywords\"\>", "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{"\<\"UUID\"\>", "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{"\<\"Creator\"\>", "\[Rule]", "\<\"Carlo Peruzzo\"\>"}], ",", 
+   RowBox[{"\<\"URL\"\>", "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{"\<\"Internal\"\>", "\[Rule]", "False"}], ",", 
+   RowBox[{"\<\"Context\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\<\"PostprocessPyFrac`\"\>", ",", "\<\"getDOUBLEfrac`\"\>", 
+      ",", "\<\"getGENERALfrac`\"\>", ",", "\<\"getSINGLEfrac`\"\>", 
+      ",", "\<\"rectangularMesh`\"\>"}], "}"}]}], ",", 
+   RowBox[{"\<\"Loading\"\>", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"\<\"AutoUpdating\"\>", "\[Rule]", "False"}], ",", 
+   RowBox[{"\<\"Enabled\"\>", "\[Rule]", "True"}], ",", 
+   RowBox[{"\<\"Location\"\>", 
+    "\[Rule]", \
+"\<\"/Users/carloperuzzo/Library/Mathematica/Paclets/Repository/PyFracPost-0.\
+0.1\"\>"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.813994783991908*^9, {3.813994816694675*^9, 3.813994819203183*^9}},
+ CellLabel->"Out[4]=",ExpressionUUID->"faeb5c28-a589-4bf6-bb88-c2d402df4377"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Information", "[", "mypaclet", " ", "]"}]], "Input",
+ CellChangeTimes->{{3.813996619378132*^9, 3.813996625265277*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"9dee6898-b9dd-4fb4-9486-4508bec75f9c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   FrameBox[
+    TagBox[GridBox[{
+       {
+        ItemBox[
+         PaneBox[
+          StyleBox["\<\" Paclet\"\>", "InformationTitleText",
+           StripOnInput->False],
+          FrameMargins->{{4, 0}, {-1, 1}}],
+         BaseStyle->"InformationTitleBackground",
+         StripOnInput->False]},
+       {
+        PaneBox[GridBox[{
+           {
+            
+            DynamicModuleBox[{System`InformationDump`open$$ = {
+             False, False, False, False, False, False, False, False, False, 
+              False, False, False, False, False, False, False, False, False}}, 
+             StyleBox[GridBox[{
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Name\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Name\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "Name", "Tooltip"]& ], "\<\"PyFracPost\"\>"},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Version\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Version\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "Version", "Tooltip"]& ], "\<\"0.0.1\"\>"},
+                {
+                 TagBox[
+                  TooltipBox[
+                   
+                   StyleBox["\<\" Wolfram Version\"\>", "InformationRowLabel",
+                    
+                    StripOnInput->False],
+                   "\"WolframVersion\"",
+                   TooltipStyle->"TextStyling"],
+                  
+                  Annotation[#, "WolframVersion", 
+                   "Tooltip"]& ], "\<\"12+\"\>"},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Qualifier\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Qualifier\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "Qualifier", "Tooltip"]& ], "\<\"\"\>"},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" System ID\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"SystemID\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "SystemID", "Tooltip"]& ], 
+                 RowBox[{"{", 
+                  
+                  RowBox[{"\<\"MacOSX-x86-64\"\>", 
+                   ",", "\<\"Linux-x86-64\"\>", 
+                   ",", "\<\"Windows-x-86-64\"\>"}], "}"}]},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Description\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Description\"",
+                   TooltipStyle->"TextStyling"],
+                  
+                  Annotation[#, "Description", 
+                   "Tooltip"]& ], "\<\"Some functions to import easily PyFrac \
+results into Mathematica\"\>"},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Category\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Category\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "Category", "Tooltip"]& ], 
+                 RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Keywords\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Keywords\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "Keywords", "Tooltip"]& ], 
+                 RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" UUID\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"UUID\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "UUID", "Tooltip"]& ], 
+                 RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Creator\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Creator\"",
+                   TooltipStyle->"TextStyling"],
+                  
+                  Annotation[#, "Creator", 
+                   "Tooltip"]& ], "\<\"Carlo Peruzzo\"\>"},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" URL\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"URL\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "URL", "Tooltip"]& ], 
+                 RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Internal\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Internal\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "Internal", "Tooltip"]& ], "False"},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Context\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Context\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "Context", "Tooltip"]& ], 
+                 RowBox[{"{", 
+                  
+                  RowBox[{"\<\"PostprocessPyFrac`\"\>", 
+                   ",", "\<\"getDOUBLEfrac`\"\>", 
+                   ",", "\<\"getGENERALfrac`\"\>", 
+                   ",", "\<\"getSINGLEfrac`\"\>", 
+                   ",", "\<\"rectangularMesh`\"\>"}], "}"}]},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Loading\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Loading\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "Loading", "Tooltip"]& ], "Automatic"},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Auto Updating\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"AutoUpdating\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "AutoUpdating", "Tooltip"]& ], "False"},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Enabled\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Enabled\"",
+                   TooltipStyle->"TextStyling"],
+                  Annotation[#, "Enabled", "Tooltip"]& ], "True"},
+                {
+                 TagBox[
+                  TooltipBox[
+                   StyleBox["\<\" Location\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                   "\"Location\"",
+                   TooltipStyle->"TextStyling"],
+                  
+                  Annotation[#, "Location", 
+                   "Tooltip"]& ], \
+"\<\"/Users/carloperuzzo/Library/Mathematica/Paclets/Repository/PyFracPost-0.\
+0.1\"\>"}
+               },
+               AutoDelete->False,
+               GridBoxAlignment->{"Columns" -> {Right, Left}},
+               GridBoxDividers->None,
+               GridBoxItemSize->{"Columns" -> {Automatic, Automatic}},
+               GridBoxSpacings->{"Columns" -> {
+                   Offset[0.27999999999999997`], {
+                    Offset[0.5599999999999999]}, 
+                   Offset[0.27999999999999997`]}, "Rows" -> {
+                   Offset[0.2], {
+                    Offset[0.8]}, 
+                   Offset[0.2]}}], "DialogStyle",
+              StripOnInput->False],
+             DynamicModuleValues:>{}]}
+          },
+          DefaultBaseStyle->"Column",
+          GridBoxAlignment->{"Columns" -> {{Left}}},
+          GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.27999999999999997`], {
+               Offset[0.5599999999999999]}, 
+              Offset[0.27999999999999997`]}, "Rows" -> {
+              Offset[0.2], {
+               Offset[3.6]}, 
+              Offset[0.2]}}],
+         FrameMargins->6]}
+      },
+      DefaultBaseStyle->"Column",
+      FrameStyle->Directive[
+        GrayLevel[0.8], 
+        Thickness[Tiny]],
+      GridBoxAlignment->{"Columns" -> {{Left}}},
+      GridBoxDividers->{
+       "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+      GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+     
+     "Column"],
+    BaseStyle->"InformationGridFrame",
+    StripOnInput->False], "InformationGridPlain",
+   StripOnInput->False],
+  InformationData[
+   Association[
+   "ObjectType" -> "Paclet", "Name" -> "PyFracPost", "Version" -> "0.0.1", 
+    "WolframVersion" -> "12+", "Qualifier" -> "", 
+    "SystemID" -> {"MacOSX-x86-64", "Linux-x86-64", "Windows-x-86-64"}, 
+    "Description" -> 
+    "Some functions to import easily PyFrac results into Mathematica", 
+    "Category" -> Missing["NotAvailable"], "Keywords" -> 
+    Missing["NotAvailable"], "UUID" -> Missing["NotAvailable"], "Creator" -> 
+    "Carlo Peruzzo", "URL" -> Missing["NotAvailable"], "Internal" -> False, 
+    "Context" -> {
+     "PostprocessPyFrac`", "getDOUBLEfrac`", "getGENERALfrac`", 
+      "getSINGLEfrac`", "rectangularMesh`"}, "Loading" -> Automatic, 
+    "AutoUpdating" -> False, "Enabled" -> True, "Location" -> 
+    "/Users/carloperuzzo/Library/Mathematica/Paclets/Repository/PyFracPost-0.\
+0.1"], True]]], "Output",
+ CellChangeTimes->{3.813996626013026*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"8547a78f-c756-48b5-a062-02f98cc7c2f9"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"PacletUninstall", "[", "\"\<PyFracPost\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.813921082014434*^9, 3.813921095708358*^9}},
+ Background->RGBColor[0.87, 0.94, 1],
+ CellLabel->"In[5]:=",ExpressionUUID->"2ec65f7f-ee63-42b4-9fbc-41834a160963"],
+
+Cell["Importing one the contexts in the paclet ", "Text",
+ CellChangeTimes->{{3.8139962625709677`*^9, 3.813996271005807*^9}, {
+  3.813996358617896*^9, 3.8139963946953707`*^9}, {3.813996528703662*^9, 
+  3.81399655711904*^9}},ExpressionUUID->"07e4f0cf-eac0-4e06-9a99-\
+9cae3bc73a50"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<PostprocessPyFrac`\>\"", "]"}]], "Input",
+ CellChangeTimes->{
+  3.813472475314183*^9, {3.813484060923469*^9, 3.813484062886668*^9}, {
+   3.813484217587714*^9, 3.813484217910076*^9}, {3.813484357099663*^9, 
+   3.8134843923462276`*^9}, {3.813484425067268*^9, 3.8134844275350533`*^9}, {
+   3.813484474452115*^9, 3.813484475493972*^9}, {3.813486417762484*^9, 
+   3.8134864438250027`*^9}, {3.813486667004237*^9, 3.8134867156649113`*^9}, {
+   3.813486896472066*^9, 3.813486896756377*^9}, 3.813488136216806*^9, 
+   3.8139163486712646`*^9, 3.813916560341609*^9, {3.8139181125974617`*^9, 
+   3.81391811307157*^9}, {3.813919472449052*^9, 3.813919473560492*^9}, {
+   3.813996561226912*^9, 3.813996562451421*^9}},
+ Background->RGBColor[
+  0.87, 0.94, 1],ExpressionUUID->"63f3bbef-2619-4f6b-9a20-f0f597dd2b8d"],
+
+Cell["Extracting the paclet from the archive", "Text",
+ CellChangeTimes->{{3.8139962625709677`*^9, 3.813996271005807*^9}, {
+  3.813996358617896*^9, 3.8139963946953707`*^9}, {3.813996528703662*^9, 
+  3.81399655711904*^9}, {3.813997269773396*^9, 3.813997275337742*^9}, {
+  3.813997314112549*^9, 
+  3.813997348326768*^9}},ExpressionUUID->"d72863e8-6361-4abc-a9fc-\
+d901daeb846d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ExtractPacletArchive", "[", 
+  RowBox[{
+  "\"\</Users/carloperuzzo/Desktop/toughness_jump/mmaNb/PyFracPost-0.0.1.\
+paclet\>\"", ",", "\"\</Users/carloperuzzo/Desktop/toughness_jump/\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.813997165356641*^9, 3.813997195761932*^9}},
+ Background->RGBColor[0.87, 0.94, 1],
+ CellLabel->"In[10]:=",ExpressionUUID->"fcdb407d-f1aa-4ebf-a569-d84fa4d573bb"],
+
+Cell[BoxData["\<\"/Users/carloperuzzo/Desktop/toughness_jump/PyFracPost-0.0.1\
+\"\>"], "Output",
+ CellChangeTimes->{3.813997198362266*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"68234bc2-25a4-4811-96bb-aac76f340972"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SECTION 2", "Section",
+ CellChangeTimes->{{3.813996460597728*^9, 3.8139964624048357`*^9}, 
+   3.8139965094696693`*^9},ExpressionUUID->"1fd9ce32-9c97-4b42-a966-\
+a72305544457"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Unpacking the archive and adding the paclet directory into the $Path\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.8134721624505043`*^9, 3.813472203456958*^9}, 
+   3.813481620581512*^9, {3.813994524392271*^9, 3.813994537312499*^9}, {
+   3.813994579064625*^9, 3.813994580518236*^9}, {3.813996194452447*^9, 
+   3.81399620409964*^9}, {3.813996298976924*^9, 3.813996338688805*^9}, {
+   3.813996456291481*^9, 
+   3.8139964591738033`*^9}},ExpressionUUID->"5eabb9a2-ed98-48c0-bd20-\
+0d4d8d621393"],
+
+Cell["\<\
+Please note that if you have loaded the paclet using PacletDirectoryLoad then \
+it will not be installed in the default directory \
+\>", "Text",
+ CellChangeTimes->{{3.8139962625709677`*^9, 
+  3.813996271005807*^9}},ExpressionUUID->"a902bd27-86fc-43c7-9747-\
+3bdf851304cc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PacletDirectoryAdd", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.813967367314485*^9, 3.813967382209669*^9}, {
+  3.8139675448110743`*^9, 3.813967586211648*^9}, {3.814707439897819*^9, 
+  3.8147074419735327`*^9}, {3.814707507292787*^9, 3.814707525806621*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"b29daa73-8968-4793-b776-338d943fef12"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"/Users/amoeri/Documents/Wolfram \
+Mathematica/PyFrac_Mathematica_postprocessing/\"\>", "}"}]], "Output",
+ CellChangeTimes->{{3.813967577100366*^9, 3.8139675872713213`*^9}, 
+   3.813967843842209*^9, 3.813967988182866*^9, 3.813968119925518*^9, 
+   3.813993978326083*^9, {3.8147074349093037`*^9, 3.814707443436716*^9}, 
+   3.814707526575869*^9, 3.814707806028758*^9, 3.814707940603464*^9, 
+   3.814707978361865*^9, 3.814708125621852*^9, 3.814708732351898*^9, 
+   3.814708987207967*^9, 3.814709064944031*^9, 3.814709547402471*^9, 
+   3.814709621115048*^9, 3.814709826637004*^9, 3.814710232440131*^9, 
+   3.814711048674429*^9, 3.814711168545994*^9, 3.81471120111891*^9, 
+   3.814711328471834*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"1692acff-e1cc-43d7-8e78-95d043c386e3"]
+}, Open  ]],
+
+Cell["\<\
+The paclet can not be uninstalled since it is not placed in the standard \
+directory. Once you exit completely Mathematica then the presence of the \
+paclet will be forgotten.\
+\>", "Text",
+ CellChangeTimes->{{3.8139962625709677`*^9, 3.813996271005807*^9}, {
+  3.813996358617896*^9, 
+  3.813996427692358*^9}},ExpressionUUID->"03e95972-bcdd-40f6-8af2-\
+ed25ccb30751"],
+
+Cell[BoxData[
+ RowBox[{"<<", "RadialPowerLaw`"}]], "Input",
+ CellChangeTimes->{{3.8147088324605503`*^9, 3.814708842493392*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"dce9e032-f672-4112-ae1c-54b465978bf6"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.814711213969432*^9, 
+  3.8147112435135317`*^9}},ExpressionUUID->"281f1571-73fe-4906-8a2b-\
+61344aa98ab8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"VertexScaling", "[", 
+  RowBox[{
+  "\"\<M\>\"", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1.", ",", "10"}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.814710302784074*^9, 3.814710305566812*^9}, 
+   3.814710575584413*^9, {3.814711256620056*^9, 3.8147112591617813`*^9}, {
+   3.814711316619898*^9, 3.8147113539844*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"892c670c-204b-474a-961d-8dc9b552fba3"],
+
+Cell[BoxData[
+ RowBox[{"VertexScaling", "[", 
+  RowBox[{"\<\"M\"\>", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1.`", 
+   ",", "10"}], "]"}]], "Output",
+ CellChangeTimes->{
+  3.814710576877596*^9, 3.81471106339345*^9, {3.814711343427034*^9, 
+   3.8147113546532793`*^9}},
+ CellLabel->"Out[5]=",ExpressionUUID->"75568eb5-c3c6-4384-b36d-3cd43bd368ab"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RadialPowerLaw`RadialScaling`VertexScaling", "[", 
+  RowBox[{
+  "\"\<M\>\"", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1.", ",", "10"}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.814709627400334*^9, 3.814709657862748*^9}, {
+  3.814709835533091*^9, 3.814709962977282*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"692fa448-ce48-4077-8e6f-fd4ebbc618d3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"DescriptionUtilities`Lstar", "\[Rule]", "2.7825594022071245`"}], 
+   ",", 
+   RowBox[{"DescriptionUtilities`wstar", "\[Rule]", "1.2915496650148839`"}], 
+   ",", 
+   RowBox[{"DescriptionUtilities`pstar", "\[Rule]", "0.4641588833612779`"}], 
+   ",", 
+   RowBox[{
+   "DescriptionUtilities`qstar", "\[Rule]", "0.35938136638046275`"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.814709880805101*^9, {3.8147099574599457`*^9, 3.8147099636280212`*^9}},
+ CellLabel->"Out[8]=",ExpressionUUID->"19be47fe-afa9-4af4-9ac7-98f89582265e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DescriptionUtilities`Lstar", "/.", 
+  RowBox[{"RadialPowerLaw`RadialScaling`VertexScaling", "[", 
+   RowBox[{
+   "\"\<M\>\"", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1.", ",", 
+    "10"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8147099895997066`*^9, 3.814709998837018*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"6d09d2d0-1c5b-425a-949f-e30e497c1130"],
+
+Cell[BoxData["2.7825594022071245`"], "Output",
+ CellChangeTimes->{3.814709999713945*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"2b4baf9f-ef59-4eaa-b261-01b36b366474"]
+}, Open  ]],
+
+Cell[BoxData["getFr"], "Input",
+ CellChangeTimes->{{3.814710444385221*^9, 3.814710459858075*^9}, {
+  3.814710522130123*^9, 
+  3.814710523697936*^9}},ExpressionUUID->"72cdb9d7-599b-4ec8-96aa-\
+ab190a5a4d28"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1082, 743},
+WindowMargins->{{Automatic, 87}, {Automatic, 0}},
+TaggingRules->{"TryRealOnly" -> False},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (June 19, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ac9d62b9-21da-43d6-8e3f-cb152f9821f8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 575, 11, 191, "Author",ExpressionUUID->"6408a379-563d-41e8-865c-b854ae3bb5c1"],
+Cell[CellGroupData[{
+Cell[1158, 35, 205, 4, 98, "Title",ExpressionUUID->"70e661bc-8136-4638-acf0-a0dc0b6dd23d"],
+Cell[1366, 41, 444, 7, 53, "Subtitle",ExpressionUUID->"ca98902a-ae9a-40b3-9307-3f1e7daf08c3"],
+Cell[1813, 50, 223, 5, 35, "Text",ExpressionUUID->"5ea5eea7-a2c9-4f73-af22-13fd94f06de9"],
+Cell[CellGroupData[{
+Cell[2061, 59, 243, 4, 45, "Subsubsection",ExpressionUUID->"6e84f313-fc91-4971-a3cd-9897abe47489"],
+Cell[CellGroupData[{
+Cell[2329, 67, 1127, 20, 46, "Input",ExpressionUUID->"515d1425-57b2-436b-a515-f6c5c53cc0ce"],
+Cell[3459, 89, 783, 12, 34, "Output",ExpressionUUID->"1489a57a-cebb-4f99-b23a-2a21adb98dee"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4291, 107, 207, 4, 67, "Section",ExpressionUUID->"7171518b-5edc-44ff-aec7-756be54c6b35"],
+Cell[CellGroupData[{
+Cell[4523, 115, 364, 5, 45, "Subsubsection",ExpressionUUID->"25ebd778-5a10-4bbb-85c8-3205e3916055"],
+Cell[CellGroupData[{
+Cell[4912, 124, 1083, 20, 68, "Input",ExpressionUUID->"52fa9856-2bc1-4739-b564-3750306f306e"],
+Cell[5998, 146, 23210, 409, 85, "Output",ExpressionUUID->"f5b31ecc-724d-4096-a025-45a7d7422cb8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29245, 560, 245, 4, 46, "Input",ExpressionUUID->"75c30bfb-ae08-4993-8266-6f803f774fde"],
+Cell[29493, 566, 1962, 38, 161, "Output",ExpressionUUID->"faeb5c28-a589-4bf6-bb88-c2d402df4377"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31492, 609, 220, 3, 30, "Input",ExpressionUUID->"9dee6898-b9dd-4fb4-9486-4508bec75f9c"],
+Cell[31715, 614, 10277, 246, 356, "Output",ExpressionUUID->"8547a78f-c756-48b5-a062-02f98cc7c2f9"]
+}, Open  ]],
+Cell[42007, 863, 267, 4, 46, "Input",ExpressionUUID->"2ec65f7f-ee63-42b4-9fbc-41834a160963"],
+Cell[42277, 869, 281, 4, 35, "Text",ExpressionUUID->"07e4f0cf-eac0-4e06-9a99-9cae3bc73a50"],
+Cell[42561, 875, 839, 13, 46, "Input",ExpressionUUID->"63f3bbef-2619-4f6b-9a20-f0f597dd2b8d"],
+Cell[43403, 890, 376, 6, 35, "Text",ExpressionUUID->"d72863e8-6361-4abc-a9fc-d901daeb846d"],
+Cell[CellGroupData[{
+Cell[43804, 900, 416, 8, 68, "Input",ExpressionUUID->"fcdb407d-f1aa-4ebf-a569-d84fa4d573bb"],
+Cell[44223, 910, 217, 3, 34, "Output",ExpressionUUID->"68234bc2-25a4-4811-96bb-aac76f340972"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44501, 920, 181, 3, 67, "Section",ExpressionUUID->"1fd9ce32-9c97-4b42-a966-a72305544457"],
+Cell[CellGroupData[{
+Cell[44707, 927, 499, 9, 45, "Subsubsection",ExpressionUUID->"5eabb9a2-ed98-48c0-bd20-0d4d8d621393"],
+Cell[45209, 938, 282, 6, 35, "Text",ExpressionUUID->"a902bd27-86fc-43c7-9747-3bdf851304cc"],
+Cell[CellGroupData[{
+Cell[45516, 948, 402, 6, 30, "Input",ExpressionUUID->"b29daa73-8968-4793-b776-338d943fef12"],
+Cell[45921, 956, 802, 12, 34, "Output",ExpressionUUID->"1692acff-e1cc-43d7-8e78-95d043c386e3"]
+}, Open  ]],
+Cell[46738, 971, 376, 8, 58, "Text",ExpressionUUID->"03e95972-bcdd-40f6-8af2-ed25ccb30751"],
+Cell[47117, 981, 205, 3, 30, "Input",ExpressionUUID->"dce9e032-f672-4112-ae1c-54b465978bf6"],
+Cell[47325, 986, 154, 3, 30, "Input",ExpressionUUID->"281f1571-73fe-4906-8a2b-61344aa98ab8"],
+Cell[CellGroupData[{
+Cell[47504, 993, 421, 8, 30, "Input",ExpressionUUID->"892c670c-204b-474a-961d-8dc9b552fba3"],
+Cell[47928, 1003, 351, 7, 34, "Output",ExpressionUUID->"75568eb5-c3c6-4384-b36d-3cd43bd368ab"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48316, 1015, 377, 7, 30, "Input",ExpressionUUID->"692fa448-ce48-4077-8e6f-fd4ebbc618d3"],
+Cell[48696, 1024, 578, 14, 56, "Output",ExpressionUUID->"19be47fe-afa9-4af4-9ac7-98f89582265e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49311, 1043, 383, 7, 30, "Input",ExpressionUUID->"6d09d2d0-1c5b-425a-949f-e30e497c1130"],
+Cell[49697, 1052, 166, 2, 34, "Output",ExpressionUUID->"2b4baf9f-ef59-4eaa-b261-01b36b366474"]
+}, Open  ]],
+Cell[49878, 1057, 206, 4, 30, "Input",ExpressionUUID->"72cdb9d7-599b-4ec8-96aa-ab190a5a4d28"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
