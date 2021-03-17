@@ -6,14 +6,19 @@ Needs["DescriptionUtilities`"];
 Needs["UtilityForScalings`"];
 
 
-transitionMKScales::usage =	"Gives the time-independent characteristic scales - call sequence is DimensionalScales[Eprime,KIc,CL,M,Q,n]"
+transitionMKScales::usage =	"Gives the time-independent characteristic scales - call sequence is transitionMKScales[inpData,prime] with inpData an Array containg the material properties
+and prime a boolean (true if Kp is used [default], false to use KIc)"
 
-timeParameters::usage =	"Gives phi and the dimensionless time along the edges - call sequence is TimeParameters[Eprime,KIc,CL,M,Q,n]"
+timeParameters::usage =	"Gives phi and the dimensionless time along the edges - call sequence is TimeParameters[Eprime,KIc,CL,M,Q,n] output is 
+{phi, tmk, tmmt, tmtkt, tkkt, tmb, tkb, tb} where phi is the trajectory parameter, tmk to tkkt are the timescales from the parametric triangle,
+tmb and tkb timescales to buoyancy and tb the timescale to use accounting for the dimensionless viscosity in the head \[ScriptCapitalM]_b"
 
-toNumericalScaling::usage = "Scales transition to numerical scaling from vertex scaling ToNumericalScaling[V_?StringQ,n_,tau_,phi_1]"
+toNumericalScaling::usage = "Scales transition to numerical scaling from vertex scaling ToNumericalScaling[Regime,n,tau,phi]. Only works for the
+Vertexes and does not give dimensionless parameters."
 
-vertexScaling::usage = "Vertex scalings Power-law (self-similar scaling) - call sequence is VertexScaling[V_?StringQ,Ep_,Kp_,Mp_,Qo_,n_,t_] 
-with Kp=(32/pi)^0.5 , Mp= alpha M with alpha=2^(1 + n) n^-n (1 + 2 n)^n"
+vertexScaling::usage = "Vertex scalings Power-law (self-similar scaling) - call sequence is VertexScaling[Regime,inpData,t,prime]
+with Regime the string indicating the scaling (M,Mt,K,Kt,Bh,Bt}, inpData an Array containg the material properties, t the time when the solution is calculated
+and prime a boolean (true if Kp is used [default], false to use KIc)"
 
 
 Begin["`Private`"]
@@ -70,6 +75,23 @@ Switch[V,
 			\[ScriptCapitalM] -> (Sqrt[Cp] Ep^3 Mp Sqrt[Qo])/(Kp^4 t^(1/4)),
 			\[ScriptCapitalV] -> (Cp^(5/4) Ep t^(3/8))/(Kp Qo^(1/4))
 			} /.data//N
+		,
+		"Bh",{Lstarv->Kp^(2/3)/\[CapitalDelta]\[Gamma]^(2/3),
+		Lstarh-> Kp^(2/3)/\[CapitalDelta]\[Gamma]^(2/3),
+		wstar->Kp^(4/3)/(Ep \[CapitalDelta]\[Gamma]^(1/3)),
+		pstar-> Kp^(2/3) \[CapitalDelta]\[Gamma]^(1/3),
+		qstar-> Qo,
+			\[ScriptCapitalM] -> (Ep^3 Qo \[CapitalDelta]\[Gamma]^(2/3) Mp)/KIc^(14/3),
+			Vh -> Kp^(8/3)/(Ep \[CapitalDelta]\[Gamma]^(5/3))
+			} /.data//N,
+		"Bt",{Lstarv->(Qo^(2/3) t \[CapitalDelta]\[Gamma]^(7/9))/(Kp^(4/9) Mp^(1/3)),
+		Lstarh-> Kp^(2/3)/\[CapitalDelta]\[Gamma]^(2/3),
+		wstar->(Qo^(1/3) Mp^(1/3))/(Kp^(2/9) \[CapitalDelta]\[Gamma]^(1/9)),
+		pstar-> (Qo^(2/3) t \[CapitalDelta]\[Gamma]^(16/9))/(Kp^(4/9) Mp^(1/3)),
+		qstar-> Qo,
+			\[ScriptCapitalK] -> Kp^(14/9)/(Ep Qo^(1/3) \[CapitalDelta]\[Gamma]^(2/9) Mp^(1/3)),
+			Vt -> Qo t-Kp^(8/3)/(Ep \[CapitalDelta]\[Gamma]^(5/3))
+			} /.data//N
 ]
 ];
 
@@ -102,7 +124,7 @@ Module[{data},
 
 timeParameters[inpData_,prime_:True] := 
 Module[
-   		{data,phi,tmk,tmmt,tmtkt,tkkt},
+   		{data,phi,tmk,tmmt,tmtkt,tkkt,tmb,tkb,tb,Mb,preFac},
    		data = inputDataTransformation[inpData,prime];
    
    		phi =
@@ -117,9 +139,16 @@ Module[
    		tmk = ((Mp^5 Ep^(6 n + 7) Qo^(n + 2))/Kp^(6 (n + 2)))^(1/(4 n - 2))/.data;
    		tmmt = If[(Cp/.data)== 0, Infinity, ((Mp^4 Qo^(2 (n + 2)))/(Ep^4 Cp^(6 (n + 2))))^(1/(5 n + 2))/.data];
    		tmtkt = If[(Cp/.data)==0,0,((Mp^4 Ep^(4 (2 n + 1)) Cp^(2 (2 n - 1)) Qo^2)/Kp^(8 (n + 1)))^(1/(2 n - 1))/.data];	
-		tkkt = If[(Cp/.data) == 0, Infinity, ((Kp^8 Qo^2)/(Ep^8 Cp^10))^(1/3)/.data];
-
-   		{phi, tmk, tmmt, tmtkt, tkkt}
+		   tkkt = If[(Cp/.data) == 0, Infinity, ((Kp^8 Qo^2)/(Ep^8 Cp^10))^(1/3)/.data];
+		   tmb = If[(\[CapitalDelta]\[Gamma]/.data) == 0, Infinity, (Ep^(5/7) Mp^(4/7))/(Qo^(3/7) \[CapitalDelta]\[Gamma]^(9/7))/.data];
+		   tkb = If[(\[CapitalDelta]\[Gamma]/.data) == 0, Infinity, Kp^(8/3)/(Ep Qo \[CapitalDelta]\[Gamma]^(5/3))/.data];
+		   
+			Mb =\[ScriptCapitalM]/.vertexScaling["Bh",data,0.1,False];
+			preFac = If[Mb<10^-3,5 10^-3 Mb^(-4/7),
+			If[Mb>500,0.5,1/(2 10^(2/7))+(Mb-10^-3)*(0.5-1/(2 10^(2/7)))/(500-10^-3)]];
+			tb = preFac*tmb;
+			
+   		{phi, tmk, tmmt, tmtkt, tkkt, tmb, tkb, tb}
    
 ];
 
