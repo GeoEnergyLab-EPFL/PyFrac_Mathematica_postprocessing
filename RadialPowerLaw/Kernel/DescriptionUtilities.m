@@ -70,10 +70,13 @@ SigmaO::usage = " Symbol reserved for initial constant clamping stress normal to
 \[ScriptCapitalM]::usage = "Dimensionless viscosity coefficient."
 \[ScriptCapitalC]::usage = "Dimensionless leak-off coefficient."
 \[ScriptCapitalV]::usage = "Dimensionless storage coefficient."
+\[ScriptCapitalB]::usage = "Dimensionless buoyancy coefficient."
 
 
 (* Buoyancy related parameters *)
 \[CapitalDelta]\[Gamma]::usage = "Buoyancy of the gravity driven fracture."
+Vh::usage = "Head volume for a buoyant fracture."
+Vt::usage = "Tail volume for a buoyant fracture."
 
 
 WellboreRadius::usage = " Symbol reserved for wellbore radis "
@@ -123,6 +126,8 @@ pstar::usage = " Symbol reserved for the pressure scale "
 Lstar::usage = " Symbol reserved for the length scale "
 tstar::usage = " Symbol reserved for the characteristic time scale"
 qstar::usage= " Symbol reserved for the flux scale "
+Lstarv::usage = " Symbol reserved for the vertical length scale in buoyancy scalings "
+Lstarh::usage = " Symbol reserved for the horizontal length scale in buoyancy scalings "
 
 (* dimensionless numbers & symbol*)
 Kbar::usage = " Symbol reserved for dimensionless toughness"
