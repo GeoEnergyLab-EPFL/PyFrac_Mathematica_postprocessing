@@ -7,9 +7,15 @@ Needs["UtilityForScalings`"];
 Needs["RadialScaling`"];
 
 
-injectionVertexSolutions::usage = " Gives the vertex solutions of the different injection regimes."
+injectionVertexSolutions::usage = " Gives the vertex solutions of the different injection regimes (zero buoyancy \[CapitalDelta]\[Gamma]).
+Input sequence is regime as string \[Element] [M, K, Mt, Kt], the input data containing the information, value of \[Rho] dimensionless radius,
+time (either a list or a scalar), boolean saying if the dimensional solution is wished (default else set to false), and 
+boolean deciding if Kp is used (default else set to false)."
 
-injectionNearVertexSolutions::usage = " Gives the near vertex solutions of the different injection regimes."        
+injectionNearVertexSolutions::usage = " Gives the near vertex solutions of the different injection regimes (zero buoyancy \[CapitalDelta]\[Gamma]).
+Input sequence is regime as string \[Element] [KVisc, KLeak, KtStor], the input data containing the information, value of \[Rho] dimensionless radius,
+time (either a list or a scalar), boolean saying if the dimensional solution is wished (default else set to false), and 
+boolean deciding if Kp is used (default else set to false)."        
 
 
 Begin["`Private`"]

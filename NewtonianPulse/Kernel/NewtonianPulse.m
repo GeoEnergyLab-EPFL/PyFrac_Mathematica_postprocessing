@@ -14,12 +14,21 @@ Geo-energy Laboratory EPFL
 --------------------------------------------- *)
 BeginPackage["NewtonianPulse`"];
 
-pulseVertexScalings::usage =  "Gives the vertex scales in the case of a pulse injection.";
+pulseVertexScalings::usage =  "Gives the vertex scales in the case of a pulse injection (zero buoyancy \[CapitalDelta]\[Gamma]).
+Input sequence is regime as string \[Element] [M, K, Mt, Kt], the input data containing the information,
+time (either a list or a scalar), and boolean deciding if Kp is used (default else set to false).";
 
-pulseVertexSolutions::usage = "Gives the vertex solution of the \!\(\*SuperscriptBox[\(M\), \([V]\)]\)-vertex and \!\(\*SuperscriptBox[\(K\), \([V]\)]\)-vertex";
+pulseVertexSolutions::usage = "Gives the vertex solution of the \!\(\*SuperscriptBox[\(M\), \([V]\)]\)-vertex and \!\(\*SuperscriptBox[\(K\), \([V]\)]\)-vertex (zero buoyancy \[CapitalDelta]\[Gamma]).
+Input sequence is regime as string \[Element] [M, K], the input data containing the information, value of \[Rho] dimensionless radius,
+time (either a list or a scalar), boolean saying if the dimensional solution is wished (default else set to false), and 
+boolean deciding if Kp is used (default else set to false).";
 
-arrestRadius::usage = "Gives the solutions for the arrest radius."
+arrestRadius::usage = "Gives the solutions for the arrest radius (zero buoyancy \[CapitalDelta]\[Gamma]).
+Input sequence is regime as string \[Element] [K, Kt, Mt] (first is toughness arrest radius, second and third viscosity),
+the input data containing the information, boolean saying if the dimensional solution is wished (default else set to false), and 
+boolean deciding if Kp is used (default else set to false)."
 
+[V_?StringQ,inpData_,dimensional_:True,prime_:True]
 Needs["DescriptionUtilities`"]
 Needs["UtilityForScalings`"]
 

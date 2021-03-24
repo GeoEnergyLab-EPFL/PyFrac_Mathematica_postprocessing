@@ -4,9 +4,11 @@ BeginPackage["ComputedSolutions`"]
 
 Needs["DescriptionUtilities`"];
 
-edgeSolution::usage = "Gives MK adn MM~ edge solutions";
-insideSolution::usage = "Gives the solution inside the rectangle";
-solutionTime::usage = "Gives the interval of time where each solution is valid";
+edgeSolution::usage = "Gives MK adn MM~ edge solutions given by Detournay data (zero buoyancy \[CapitalDelta]\[Gamma]=0). Input is the edge as string, the
+fluid index n, the time t (list or scalar) and the location \[Rho].";
+insideSolution::usage = "Gives the solution inside the rectangle in function of the trajectory parameter \[Phi] (zero buoyancy \[CapitalDelta]\[Gamma]=0). Input is the
+fluid index n, the value of \[Phi], the time t (list or scalar) and the location \[Rho].";
+solutionTime::usage = "Gives the interval of time where each solution is valid (zero buoyancy \[CapitalDelta]\[Gamma]=0). Sequence is edge MK, MMT or Inside and the fluid index n.";
 
 Begin["`Private`"]
 

@@ -7,10 +7,10 @@ Needs["VertexSolutions`"]
 
 Needs["DescriptionUtilities`"];
 
-earlySolution::usage = "Gives the early time solution for a radial HF driven by a power-law fluid"
-middleSolution::usage = "Gives the middle time solution for a radial HF driven by a power-law fluid"
-laterSolution::usage = "Gives the large time solution for a radial HF driven by a power-law fluid"
-criticalOpening::usage = "Gives the Adimensionl critical opening"
+earlySolution::usage = "Gives the early time solution for a radial HF driven by a power-law fluid (Edge scalings)."
+middleSolution::usage = "Gives the middle time solution for a radial HF driven by a power-law fluid (Edge scalings)."
+laterSolution::usage = "Gives the large time solution for a radial HF driven by a power-law fluid (Edge scalings)."
+criticalOpening::usage = "Gives the Adimensional critical opening (Edge scalings)."
 
 Begin["`Private`"]
  

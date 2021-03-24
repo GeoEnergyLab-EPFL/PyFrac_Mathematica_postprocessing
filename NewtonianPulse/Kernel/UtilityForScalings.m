@@ -14,7 +14,7 @@ Geo-energy Laboratory EPFL
 --------------------------------------------- *)
 BeginPackage["UtilityForScalings`"];
 
-inputDataTransformation::usage =  "Transform the input data according to the input change";
+inputDataTransformation::usage =  "Transform the input data according to the input such that it can be used for simulations.";
 
 Needs["DescriptionUtilities`"]
 
@@ -22,7 +22,7 @@ Begin["`Private`"];
 
 
 inputDataTransformation[inpData_,prime_:True] := Module[{Kprime,Mprime,Eprime,Cprime,
-Voint,tsint,Qoint,alpha,intn},
+Voint,tsint,Qoint,alpha,intn,dg},
 
 (* Decide on Kprime *)
 If[KeyExistsQ[inpData,KIc]&&prime,
@@ -37,7 +37,7 @@ If[KeyExistsQ[inpData,n],
 alpha = (2^(n + 1) (2 n + 1)^n)/n^n;
 intn = n/.inpData;,
 alpha = 12;
-intn = 1.];
+intn = 1];
 
 (* Decide on \[Mu]' *)
 If[KeyExistsQ[inpData,\[Mu]],
@@ -65,8 +65,11 @@ Qoint = Qo/.inpData;
 (* Decide on ts *)
 tsint = ts/.inpData;
 
+(* Decide on \[CapitalDelta]\[Gamma] *)
+dg = \[CapitalDelta]\[Gamma]/.inpData;
+
 {Ep-> Eprime, Vo -> Voint, Qo -> Qoint, ts -> tsint, Mp -> Mprime, Kp -> Kprime,
-Cp-> Cprime,n -> intn}
+Cp-> Cprime,n -> intn, \[CapitalDelta]\[Gamma]-> dg}
 
 ];
 

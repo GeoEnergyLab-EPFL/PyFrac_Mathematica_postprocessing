@@ -28,7 +28,7 @@ vertexScaling[V_?StringQ,inpData_,t_,prime_:True] := Module[{data},
 data = inputDataTransformation[inpData,prime];
 
 Switch[V,
-	"M",If[n!=1,
+	"M",If[(n/.data)!=1.,
 			{Lstar->Ep^(1/(6 + 3 n)) Mp^(-(1/(6 + 3 n))) Qo^(1/3) t^((2 (1 + n))/( 3 (2 + n))),
 			wstar->Ep^(-(2/(6 + 3 n))) Mp^(2/(6 + 3 n)) Qo^(1/3) t^((2 - n)/(6 + 3 n)),
 			pstar->Ep^((1 + n)/(2 + n)) Mp^(1/(2 + n)) t^(-(n/(2 + n))),
@@ -44,7 +44,7 @@ Switch[V,
 			\[ScriptCapitalC] -> (Cp Ep^(2/9) t^(7/18))/(Mp^(2/9) Qo^(1/3)),
 			\[ScriptCapitalB] -> (Qo^(1/3) t^(7/9) \[CapitalDelta]\[Gamma])/(Ep^(5/9) Mp^(4/9))
 			} /.data//N],
-			"K",If[n!=1,
+			"K",If[(n/.data)!=1.,
 		{Lstar->(Ep^(2/5) Qo^(2/5) t^(2/5))/Kp^(2/5),
 		wstar->(Kp^(4/5) Qo^(1/5) t^(1/5))/Ep^(4/5),
 		pstar->Kp^(6/5)/(Ep^(1/5) Qo^(1/5) t^(1/5)),
@@ -81,7 +81,7 @@ Switch[V,
 		wstar->Kp^(4/3)/(Ep \[CapitalDelta]\[Gamma]^(1/3)),
 		pstar-> Kp^(2/3) \[CapitalDelta]\[Gamma]^(1/3),
 		qstar-> Qo,
-			\[ScriptCapitalM] -> (Ep^3 Qo \[CapitalDelta]\[Gamma]^(2/3) Mp)/KIc^(14/3),
+			\[ScriptCapitalM] -> (Ep^3 Qo \[CapitalDelta]\[Gamma]^(2/3) Mp)/Kp^(14/3),
 			Vh -> Kp^(8/3)/(Ep \[CapitalDelta]\[Gamma]^(5/3))
 			} /.data//N,
 		"Bt",{Lstarv->(Qo^(2/3) t \[CapitalDelta]\[Gamma]^(7/9))/(Kp^(4/9) Mp^(1/3)),
@@ -125,6 +125,7 @@ Module[{data},
 timeParameters[inpData_,prime_:True] := 
 Module[
    		{data,phi,tmk,tmmt,tmtkt,tkkt,tmb,tkb,tb,Mb,preFac},
+   		
    		data = inputDataTransformation[inpData,prime];
    
    		phi =
@@ -143,7 +144,7 @@ Module[
 		   tmb = If[(\[CapitalDelta]\[Gamma]/.data) == 0, Infinity, (Ep^(5/7) Mp^(4/7))/(Qo^(3/7) \[CapitalDelta]\[Gamma]^(9/7))/.data];
 		   tkb = If[(\[CapitalDelta]\[Gamma]/.data) == 0, Infinity, Kp^(8/3)/(Ep Qo \[CapitalDelta]\[Gamma]^(5/3))/.data];
 		   
-			Mb =\[ScriptCapitalM]/.vertexScaling["Bh",data,0.1,False];
+			Mb =\[ScriptCapitalM]/.vertexScaling["Bh",inpData,0.1,False];
 			preFac = If[Mb<10^-3,5 10^-3 Mb^(-4/7),
 			If[Mb>500,0.5,1/(2 10^(2/7))+(Mb-10^-3)*(0.5-1/(2 10^(2/7)))/(500-10^-3)]];
 			tb = preFac*tmb;
