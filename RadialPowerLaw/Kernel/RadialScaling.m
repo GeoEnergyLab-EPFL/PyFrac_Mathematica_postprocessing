@@ -146,7 +146,7 @@ Module[
 		   
 			Mb =\[ScriptCapitalM]/.vertexScaling["Bh",inpData,0.1,False];
 			preFac = If[Mb<10^-3,5 10^-3 Mb^(-4/7),
-			If[Mb>500,0.5,1/(2 10^(2/7))+(Mb-10^-3)*(0.5-1/(2 10^(2/7)))/(500-10^-3)]];
+			If[Mb>50,0.5,0.3947185566894727` Mb^0.060438065385210016`]];
 			tb = preFac*tmb;
 			
    		{phi, tmk, tmmt, tmtkt, tkkt, tmb, tkb, tb}

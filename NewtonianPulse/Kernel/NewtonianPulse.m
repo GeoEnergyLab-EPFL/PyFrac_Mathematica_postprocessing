@@ -28,7 +28,6 @@ Input sequence is regime as string \[Element] [K, Kt, Mt] (first is toughness ar
 the input data containing the information, boolean saying if the dimensional solution is wished (default else set to false), and 
 boolean deciding if Kp is used (default else set to false)."
 
-[V_?StringQ,inpData_,dimensional_:True,prime_:True]
 Needs["DescriptionUtilities`"]
 Needs["UtilityForScalings`"]
 
